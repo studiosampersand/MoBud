@@ -1,6 +1,3 @@
-# MoBud
-Track your mobility and administration.
+# MoBud v0.000.007
 
-An offline-first PWA for tracking commutes, mileage and transport expenses.
-
-Free to use. Ad-free. Your mobility data stays on your device or, if you choose, in your own Google Drive.
+Production build for the repository root. Local-first, multilingual and ad-free.

@@ -1,17 +1,32 @@
 {
   "id": "./",
-  "name": "Vialego",
-  "short_name": "Vialego",
-  "description": "Lokale PWA voor ritten, woon-werk, thuiswerk, vervoerskosten en bonnetjes.",
-  "start_url": "./index.html",
+  "name": "MoBud",
+  "short_name": "MoBud",
+  "description": "Track your mobility and administration. Local-first, multilingual and ad-free.",
+  "start_url": "./",
   "scope": "./",
-  "display": "fullscreen",
-  "background_color": "#090f1c",
-  "theme_color": "#111827",
+  "display": "standalone",
+  "background_color": "#0f0f10",
+  "theme_color": "#0f0f10",
   "orientation": "portrait-primary",
   "icons": [
-    {"src":"icon-192-v003b.png","sizes":"192x192","type":"image/png","purpose":"any"},
-    {"src":"icon-512-v003b.png","sizes":"512x512","type":"image/png","purpose":"any"},
-    {"src":"icon-maskable-512-v003b.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+    {
+      "src": "./icon-192-v005.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512-v005.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512-v005.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }
