@@ -85,3 +85,10 @@ Once GitHub validates the domain, enable Enforce HTTPS.
 10. Install the beta PWA only after the browser test succeeds.
 
 Google Drive remains optional and requires a valid Google OAuth client ID before real Drive authentication can work.
+
+
+## Hotfix 1
+- Tutorial targets now use the bottom navigation and stable `data-tutorial` attributes.
+- Quick commute shows one default or most-used Garage vehicle per vehicle type and scrolls horizontally.
+- Appearance supports system, dark and light mode.
+- Base paragraph size is 16px.
