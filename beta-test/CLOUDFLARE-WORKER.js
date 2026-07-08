@@ -1,7 +1,8 @@
 const ALLOWED_ORIGINS = [
   "http://localhost:8000",
   "http://127.0.0.1:8000",
-  "https://studiosampersand.github.io"
+  "https://studiosampersand.github.io",
+  "https://mobud.app"
 ];
 
 function cors(origin) {

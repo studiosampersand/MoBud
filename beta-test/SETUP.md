@@ -1,40 +1,87 @@
-# MoBud v0.000.004 beta setup
+# MoBud v0.000.005 beta setup
 
-## GitHub beta branch / site
+## 1. Upload to GitHub
 
-Recommended safe test setup: keep production in `vialego` and publish this beta from a separate public repository named `mobud-beta` (or `vialego-beta`). Upload the app files from this ZIP to the repository root. Do not upload `CLOUDFLARE-WORKER.js` to the public app repository if you prefer to keep infrastructure code separate; it contains no secret, but is only deployment source.
+Use the existing repository and upload all website files into:
 
-In the beta repository: Settings → Pages → Deploy from a branch → `main` → `/root`. The expected URL is `https://studiosampersand.github.io/mobud-beta/`.
+`/beta-test/`
 
-## Cloudflare Worker
+The result must be:
 
-Open Cloudflare → Compute → Workers & Pages → `vialego-api` → Edit code. Replace the Worker code with `CLOUDFLARE-WORKER.js` and deploy.
+- `/beta-test/index.html`
+- `/beta-test/app.js`
+- `/beta-test/styles.css`
+- `/beta-test/config.js`
+- `/beta-test/manifest.json`
+- `/beta-test/service-worker.js`
+- `/beta-test/icon-192-v005.png`
+- `/beta-test/icon-512-v005.png`
+- `/beta-test/icon-maskable-512-v005.png`
 
-Under Settings → Variables and Secrets, keep:
+Do not add an extra folder level inside `beta-test`.
 
-- `ORS_API_KEY` — Secret — your openrouteservice key.
+Test URL before the custom domain is active:
 
-Add:
+`https://studiosampersand.github.io/MoBud/beta-test/`
 
-- `GITHUB_TOKEN` — Secret — a fine-grained GitHub personal access token.
-- `GITHUB_REPO` — ordinary variable — `studiosampersand/vialego` (or the repository where issues should be created).
+After the domain is active:
 
-Create the fine-grained GitHub token at GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens. Restrict it to the chosen repository and grant only: **Issues: Read and write** and **Metadata: Read-only**. Do not place the token in GitHub, `config.js`, or the ZIP.
+`https://mobud.app/beta-test/`
 
-The Worker and GitHub API both have free tiers. This remains free for normal beta volumes, subject to their published usage limits.
+## 2. GitHub Pages
 
-## Test support forms
+Repository → Settings → Pages:
 
-Open MoBud → Setup → Feedback → Report bug. Submit a harmless test. Confirm a new issue appears in the configured GitHub repository. Delete the test issue afterwards.
+- Source: Deploy from a branch
+- Branch: main
+- Folder: /root
 
-## Reminders
+The production app remains in the repository root. The beta remains in `/beta-test/`.
 
-Daily/weekly commute reminders are included as an in-app beta feature. They trigger when MoBud is open or becomes visible after the configured time. Guaranteed delivery while the app is fully closed requires Web Push and is not part of this build.
+## 3. Cloudflare Worker
 
-## Public transport
+Open Cloudflare → Compute → Workers & Pages → `vialego-api` → Edit code.
 
-Setup includes official SNCB/NMBS and De Lijn links for ticket purchase and subscription management. MoBud only records the trip and optional supporting document.
+Replace the Worker code with `CLOUDFLARE-WORKER.js` from this ZIP and deploy it.
 
-## Data safety
+Required allowed origins are already included:
 
-The beta continues using the isolated storage key `vialego-beta-data-v0.000.004`, preserving separation from production. Code/service-worker updates do not clear logs or attachments. Google Drive remains optional and is not a production-ready sync backend in this build.
+- `https://studiosampersand.github.io`
+- `https://mobud.app`
+
+Required Worker secret:
+
+- `ORS_API_KEY`
+
+Optional support integration:
+
+- Secret: `GITHUB_TOKEN`
+- Variable: `GITHUB_REPO` with a value such as `studiosampersand/MoBud`
+
+The GitHub token should be fine-grained and limited to:
+
+- Metadata: read-only
+- Issues: read and write
+
+## 4. Domain
+
+In GitHub Pages, set the custom domain to `mobud.app`.
+
+At the DNS provider, set the GitHub Pages A records for `@` and a CNAME for `www` pointing to `studiosampersand.github.io`.
+
+Once GitHub validates the domain, enable Enforce HTTPS.
+
+## 5. First test
+
+1. Export a JSON backup from production.
+2. Open the beta URL in a normal browser tab.
+3. Add a recognisable beta-only trip.
+4. Reopen production and confirm the beta trip is not visible there.
+5. Add two vehicles of the same type and set one default.
+6. Test vehicle type and powertrain filters.
+7. Test quick commute, Edit, attachments, calendar, Garage, reports and reminders.
+8. Replay the tutorial from FAQ and confirm each step navigates to and highlights the correct element.
+9. Send one test feature request and one test bug report.
+10. Install the beta PWA only after the browser test succeeds.
+
+Google Drive remains optional and requires a valid Google OAuth client ID before real Drive authentication can work.
