@@ -1,6 +1,6 @@
 window.MOBUD_CONFIG = {
   API_BASE: 'https://vialego-api.studiosampersand.workers.dev',
-  GOOGLE_CLIENT_ID: '',
+  GOOGLE_CLIENT_ID: '', // paste your Google OAuth Web client ID here
   SUPPORT_ENDPOINT_ENABLED: true
 };
 // Temporary compatibility alias for older builds during migration.

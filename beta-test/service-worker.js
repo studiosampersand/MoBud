@@ -1,4 +1,4 @@
-const CACHE='mobud-beta-v0-000-006-beta-1';
+const CACHE='mobud-beta-v0-000-006-beta-2';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./config.js','./i18n.js','./manifest.json','./icon-192-v005.png','./icon-512-v005.png','./icon-maskable-512-v005.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

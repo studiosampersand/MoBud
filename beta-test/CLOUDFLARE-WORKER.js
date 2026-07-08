@@ -47,8 +47,29 @@ export default {
         orsUrl.searchParams.set("text", text);
         orsUrl.searchParams.set("size", "5");
         orsUrl.searchParams.set("boundary.country", "BE");
-        const response = await fetch(orsUrl);
-        return new Response(await response.text(), { status: response.status, headers: { ...cors(origin), "Content-Type": "application/json" } });
+        const autocomplete = await fetch(orsUrl);
+        let primary = null;
+        try { primary = await autocomplete.json(); } catch {}
+        const features = Array.isArray(primary?.features) ? primary.features : [];
+        // Street names without a house number are valid too. If autocomplete is sparse,
+        // fall back to the broader ORS search endpoint, which can return a street centroid.
+        if (features.length < 3) {
+          const searchUrl = new URL("https://api.openrouteservice.org/geocode/search");
+          searchUrl.searchParams.set("api_key", env.ORS_API_KEY);
+          searchUrl.searchParams.set("text", text);
+          searchUrl.searchParams.set("size", "5");
+          searchUrl.searchParams.set("boundary.country", "BE");
+          const fallbackResponse = await fetch(searchUrl);
+          let fallback = null;
+          try { fallback = await fallbackResponse.json(); } catch {}
+          const merged = [...features];
+          for (const feature of (fallback?.features || [])) {
+            const key = `${feature?.properties?.label || ""}|${(feature?.geometry?.coordinates || []).join(",")}`;
+            if (!merged.some(existing => `${existing?.properties?.label || ""}|${(existing?.geometry?.coordinates || []).join(",")}` === key)) merged.push(feature);
+          }
+          return json({ ...(primary || {}), features: merged.slice(0, 5) }, 200, origin);
+        }
+        return json(primary || { features: [] }, autocomplete.status, origin);
       }
 
       if (url.pathname === "/route" && request.method === "POST") {
