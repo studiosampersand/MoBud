@@ -3,10 +3,17 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>MoBud · v0.000.005 beta hotfix 1</title><link rel="manifest" href="./manifest.json"><link rel="stylesheet" href="./styles.css">
+<title>MoBud · v0.000.005 beta hotfix 2</title><link rel="manifest" href="./manifest.json"><link rel="stylesheet" href="./styles.css">
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
+<div id="installBanner" class="install-banner hidden" role="region" aria-label="Install MoBud">
+  <div class="install-banner__text">Installeer eenvoudig als app</div>
+  <div class="install-banner__actions">
+    <button id="installLater" class="install-banner__later" type="button">Later</button>
+    <button id="installNow" class="install-banner__install" type="button">Installeren</button>
+  </div>
+</div>
 <svg class="svg-sprite" aria-hidden="true" focusable="false"><defs>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 19.5z"/><path d="M9 21v-7h6v7"/></symbol>
 <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5h10v16M14 9h6v12M7 8h3M7 12h3M7 16h3M17 12h1M17 16h1M2 21h20"/></symbol>
@@ -28,7 +35,7 @@
 
 <div id="updateBanner" class="update-banner hidden"><strong>New MoBud version available</strong><button id="applyUpdate" class="primary small">Update now</button></div>
 <div id="app" class="app-shell">
-<header class="topbar"><div><p class="brand">MoBud</p><p class="tagline">Track every ride. Own every kilometer.</p></div><div class="top-actions"><button id="installBtn" class="icon-button hidden" aria-label="Install">↧</button><span class="version-pill">v0.000.005 beta hotfix 1</span></div></header>
+<header class="topbar"><div><p class="brand">MoBud</p><p class="tagline">Track every ride. Own every kilometer.</p></div><div class="top-actions"><span class="version-pill">v0.000.005 beta hotfix 2</span></div></header>
 <main>
 <section id="screen-dashboard" class="screen active">
 <div class="dashboard-intro"><p id="greeting" class="dashboard-greeting">Good morning</p><p class="muted">Track your mobility and administration.</p></div>
