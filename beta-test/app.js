@@ -1,4 +1,4 @@
-const VERSION='0.000.008';
+const VERSION='0.000.008-hotfix1';
 const KEY='mobud-beta-data-v0.000.008';
 const RECOVERY_PREFIX='mobud-recovery-';
 const LEGACY_KEYS=['mobud-beta-data-v0.000.007','mobud-beta-data-v0.000.006','mobud-beta-data-v0.000.005','vialego-beta-data-v0.000.004','mobud-beta-data-v0.000.004','vialego-data-v0.000.004','vialego-data-v0.000.003','tsumoriq-data-v0.000.001'];
@@ -42,7 +42,7 @@ function migrate(){
   return fresh();
 }
 let state=migrate(),viewDate=new Date(),calendarDate=new Date(),selectedDay=todayISO(),pendingAttachment={trip:null,expense:null},deferredPrompt=null,newWorker=null,tutorialIndex=0;
-function applyTheme(pref=state.settings.theme||'system'){const resolved=pref==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):pref;document.documentElement.dataset.theme=resolved;document.documentElement.dataset.themePreference=pref;document.querySelector('meta[name=theme-color]')?.setAttribute('content',resolved==='light'?'#f4f4f4':'#111111')}
+function applyTheme(pref=state.settings.theme||'system'){const resolved=pref==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):pref;const root=document.documentElement;root.dataset.theme=resolved;root.dataset.themePreference=pref;root.style.colorScheme=resolved;document.body?.setAttribute('data-theme',resolved);document.body?.setAttribute('data-theme-preference',pref);document.querySelector('meta[name=theme-color]')?.setAttribute('content',resolved==='light'?'#f4f4f4':'#111111');document.querySelector('meta[name=apple-mobile-web-app-status-bar-style]')?.setAttribute('content',resolved==='light'?'default':'black-translucent')}
 matchMedia('(prefers-color-scheme: light)').addEventListener?.('change',()=>{if((state.settings.theme||'system')==='system')applyTheme('system')});
 let autoSyncTimer=null,syncBusy=false,suppressAutoSync=false,drivePollTimer=null,sessionHeartbeatTimer=null,lastRemoteModified='';
 function touchState(){const now=new Date().toISOString();state.version=VERSION;state.syncMeta={...(state.syncMeta||{}),modifiedAt:now,updatedByDevice:DEVICE_ID};return now}

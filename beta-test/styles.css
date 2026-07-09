@@ -132,3 +132,23 @@ html[data-theme="light"] body{background:#f4f4f4!important;color:#1a1a1a!importa
 /* v0.000.008 — mobile stability, responsive FAQ and Drive sync UI */
 html,body{width:100%;max-width:100%;overflow-x:hidden}.app-shell,main,.screen,#screen-garage{width:100%;max-width:100%;min-width:0}.garage-card,.garage-card .section-head,.vehicle-title,.vehicle-title>div,.vehicle-meta,.maintenance-timeline,.timeline-scale{min-width:0;max-width:100%}.garage-card{overflow:hidden}.vehicle-title h3,.vehicle-title strong,.vehicle-title p{overflow-wrap:anywhere}.faq-list,.faq-item,.faq-item button,.faq-answer{width:100%;max-width:100%;min-width:0}.faq-item button,.faq-answer{white-space:normal;overflow-wrap:anywhere;word-break:normal}.faq-answer .small{width:auto;max-width:100%;margin-top:10px}.sync-status{display:inline-flex;align-items:center;gap:7px;margin:2px 0 14px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}.sync-status:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}.drive-actions{justify-content:flex-start}.warning-modal{max-width:560px}
 @media(max-width:620px){.app-shell{padding-left:12px;padding-right:12px}.bottom-nav{left:10px!important;right:10px!important;width:auto!important;max-width:none!important;transform:none!important;margin:0!important}.garage-filters{display:grid!important;grid-template-columns:minmax(0,1fr)!important}.garage-card .section-head{align-items:flex-start;flex-direction:column}.garage-card .section-head>.log-actions{width:100%;justify-content:flex-start;flex-wrap:wrap}.vehicle-title{width:100%;align-items:flex-start}.vehicle-meta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.timeline-labels{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:4px}.timeline-labels>*{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.timeline-labels>*:last-child{text-align:right}.faq-item{padding:12px 0}.faq-item button{display:block;text-align:left;padding-right:4px}.faq-answer{padding-right:2px}.drive-actions>*{width:100%}.warning-modal .modal-actions>*{width:100%}}
+
+/* v0.000.008 hotfix 1 — robust full-interface theme switching */
+html[data-theme="light"],body[data-theme="light"]{color-scheme:light!important;background:#f4f4f4!important;color:#111!important}
+body[data-theme="light"] .app-shell,body[data-theme="light"] main,body[data-theme="light"] .screen,body[data-theme="light"] .topbar{background:#f4f4f4!important;color:#111!important}
+body[data-theme="light"] .card,body[data-theme="light"] .garage-card,body[data-theme="light"] .modal-card,body[data-theme="light"] .recent-list,body[data-theme="light"] .quick-tile,body[data-theme="light"] .dashboard-link,body[data-theme="light"] .stats-strip,body[data-theme="light"] .tutorial-card{background:#fff!important;color:#111!important;border-color:#d8d8dc!important}
+body[data-theme="light"] input,body[data-theme="light"] select,body[data-theme="light"] textarea{background:#fff!important;color:#111!important;border-color:#cfcfd3!important}
+body[data-theme="light"] .bottom-nav{background:rgba(255,255,255,.98)!important;border-color:#d4d4d8!important}
+body[data-theme="light"] .secondary,body[data-theme="light"] .file-label,body[data-theme="light"] .link-btn,body[data-theme="light"] .ghost{background:#f7f7f8!important;color:#111!important;border-color:#d5d5d8!important}
+body[data-theme="light"] .muted,body[data-theme="light"] .legal-note,body[data-theme="light"] label,body[data-theme="light"] .tagline{color:#626267!important}
+
+@media (max-width:600px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  .app-shell,main,.screen,#screen-garage{width:100%;max-width:100%;min-width:0;overflow-x:hidden}
+  .bottom-nav{left:12px!important;right:12px!important;width:auto!important;transform:none!important}
+  .garage-card,.vehicle-title,.vehicle-meta,.timeline,.timeline-labels,.faq-item,.faq-answer{min-width:0;max-width:100%}
+  .faq-item button,.faq-answer{white-space:normal!important;overflow-wrap:anywhere;word-break:normal}
+  .timeline-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .timeline-labels>*{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .timeline-labels>*:last-child{text-align:right}
+}
