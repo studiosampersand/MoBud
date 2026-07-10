@@ -1,4 +1,4 @@
-const VERSION='0.000.009';
+const VERSION='0.000.010';
 const KEY='mobud-beta-data-v0.000.009';
 const RECOVERY_PREFIX='mobud-recovery-';
 const PREFERENCES_KEY=KEY.includes('beta')?'mobud-beta-preferences-v1':'mobud-production-preferences-v1';
@@ -58,6 +58,7 @@ function migrate(){
   return fresh();
 }
 let state=applyLocalPreferences(migrate()),viewDate=new Date(),calendarDate=new Date(),selectedDay=todayISO(),pendingAttachment={trip:null,expense:null},deferredPrompt=null,newWorker=null,tutorialIndex=0,tripOtherCoords={from:null,to:null};
+let reportPeriod='year',reportCustomFrom=`${new Date().getFullYear()}-01-01`,reportCustomTo=todayISO(),openReportPanels=new Set();
 let addressCommitTimer=null;
 function applyTheme(pref=state.settings.theme||'system'){const resolved=pref==='system'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):pref;const root=document.documentElement;root.dataset.theme=resolved;root.dataset.themePreference=pref;root.style.colorScheme=resolved;document.body?.setAttribute('data-theme',resolved);document.body?.setAttribute('data-theme-preference',pref);document.querySelector('meta[name=theme-color]')?.setAttribute('content',resolved==='light'?'#f4f4f4':'#111111');document.querySelector('meta[name=apple-mobile-web-app-status-bar-style]')?.setAttribute('content',resolved==='light'?'default':'black-translucent')}
 matchMedia('(prefers-color-scheme: light)').addEventListener?.('change',()=>{if((state.settings.theme||'system')==='system')applyTheme('system')});
@@ -155,51 +156,79 @@ function updatePowertrainOptions(value){const options=POWERTRAIN_OPTIONS[value]|
 function openVehicle(type='bicycle',id=''){vehicleForm.reset();vehicleId.value='';vehicleFormTitle.textContent=id?'Edit vehicle':'Add vehicle';if(id){const v=vehicleById(id);Object.entries({vehicleId:v?.id||'',vehicleType:v.type,vehicleName:v.name,vehicleBrand:v.brand,vehicleModel:v.model,vehicleCurrentOdometer:calculatedOdometer(v),vehiclePowertrain:v.powertrain||'not_applicable',vehicleBoughtFrom:v.boughtFrom,vehicleSellerUrl:v.sellerUrl,vehicleLeasePartner:v.leasePartner,vehicleLeaseUrl:v.leaseUrl,vehicleLeaseStart:v.leaseStart,vehicleLeaseEnd:v.leaseEnd,vehicleMaintenanceProvider:v.maintenanceProvider,vehicleMaintenanceUrl:v.maintenanceUrl,vehicleMaintenanceContact:v.maintenanceContact,vehicleMaintenanceAddress:v.maintenanceAddress,vehicleInsurance:v.insurance,vehicleInsuranceUrl:v.insuranceUrl,vehicleInsurancePhone:v.insurancePhone,vehicleInsuranceAddress:v.insuranceAddress,vehicleSellerPhone:v.sellerPhone,vehicleSellerAddress:v.sellerAddress,vehicleLeasePhone:v.leasePhone,vehicleLeaseAddress:v.leaseAddress,vehicleMaintenanceMonths:v.maintenanceMonths,vehicleMaintenanceKm:v.maintenanceKm}).forEach(([k,val])=>{document.getElementById(k).value=val||''});vehicleDefault.checked=!!v.isDefault;updatePowertrainOptions(v.type);vehiclePowertrain.value=v.powertrain||vehiclePowertrain.value}else{vehicleType.value=type||'bicycle';updatePowertrainOptions(vehicleType.value)}vehicleModal.classList.remove('hidden')}
 function archiveVehicle(id){const v=vehicleById(id);if(!v)return;if(v.isDefault&&v.active!==false&&!confirm('This is the default vehicle. Archive it and choose a new default later?'))return;v.active=v.active===false;save();renderGarage()}
 function showVehicleLogs(id){selectedDay=todayISO();setScreen('calendar');const rows=allRows().filter(x=>x.vehicleId===id);selectedDayTitle.textContent=`Logs for ${vehicleById(id)?.name||'vehicle'}`;dayLogs.innerHTML=rows.length?rows.map(logHtml).join(''):'No logs.';bindLogButtons(dayLogs)}
+function reportDateBounds(){
+  const today=todayISO();
+  if(reportPeriod==='all')return {from:'0000-01-01',to:'9999-12-31',label:'All time'};
+  if(reportPeriod==='month'){const d=new Date();d.setDate(d.getDate()-29);return {from:d.toISOString().slice(0,10),to:today,label:'Last 30 days'}};
+  if(reportPeriod==='custom')return {from:reportCustomFrom||'0000-01-01',to:reportCustomTo||today,label:'Custom period'};
+  return {from:`${new Date().getFullYear()}-01-01`,to:today,label:'This year'};
+}
+function rowsForReport(){const {from,to}=reportDateBounds();return {trips:state.trips.filter(x=>(x.date||'')>=from&&(x.date||'')<=to),expenses:state.expenses.filter(x=>(x.date||'')>=from&&(x.date||'')<=to)}}
+function vehicleBreakdownRows(values,total,formatter){return values.length?values.map(x=>`<div class="analysis-list-row"><span class="vehicle-distance-icon">${iconType(x.v.type)}</span><span>${escapeHtml(x.v.name)}</span><strong>${formatter(x.value)} <small>${total?`${(x.value/total*100).toFixed(1)}%`:'0.0%'}</small></strong></div>`).join(''):'<p class="muted">No data in this period.</p>'}
+function analysisBar(values,total,palette){return `<div class="analysis-bar" aria-label="Distribution by vehicle">${values.map((x,i)=>`<span style="width:${total?(x.value/total*100).toFixed(3):0}%;background:${palette[i%palette.length]}" title="${safeAttr(x.v.name)}"></span>`).join('')}</div>`}
+function bindReportControls(){
+  document.querySelectorAll('[data-report-period]').forEach(b=>b.onclick=()=>{reportPeriod=b.dataset.reportPeriod;renderStats()});
+  const from=document.getElementById('reportFrom'),to=document.getElementById('reportTo');
+  if(from)from.onchange=()=>{reportCustomFrom=from.value;reportPeriod='custom';renderStats()};
+  if(to)to.onchange=()=>{reportCustomTo=to.value;reportPeriod='custom';renderStats()};
+  document.querySelectorAll('[data-analysis-toggle]').forEach(b=>b.onclick=()=>{const id=b.dataset.analysisToggle;openReportPanels.has(id)?openReportPanels.delete(id):openReportPanels.add(id);renderStats()});
+}
 function renderStats(){
-  const totalKm=state.trips.reduce((s,t)=>s+Number(t.km||0),0);
-  const totalCost=state.expenses.reduce((s,e)=>s+Number(e.amount||0),0);
-  const receipts=state.expenses.filter(e=>e.attachment).length;
-  const byVehicle=state.vehicles.map(v=>({
-    v,
-    km:state.trips.filter(t=>t.vehicleId===v.id).reduce((s,t)=>s+Number(t.km||0),0)
-  })).filter(x=>x.km>0).sort((a,b)=>b.km-a.km);
-
-  const palette=['#ff9d1c','#ffc14d','#f07818','#d9a441','#f4f4f4','#9b9b9f','#6f7075','#45464b'];
-  let cursor=0;
-  const gradientParts=byVehicle.map((x,i)=>{
-    const percentage=totalKm?x.km/totalKm*100:0;
-    const from=cursor;
-    cursor+=percentage;
-    return `${palette[i%palette.length]} ${from.toFixed(2)}% ${cursor.toFixed(2)}%`;
-  });
-  const usageChart=byVehicle.length?`<div class="usage-mix-layout"><div class="usage-donut" role="img" aria-label="Share of logged distance by vehicle" style="--usage-gradient:conic-gradient(${gradientParts.join(',')})"><div><strong>${byVehicle.length}</strong><span>${t('vehicles')}</span></div></div><div class="usage-legend">${byVehicle.map((x,i)=>{const percentage=totalKm?x.km/totalKm*100:0;return `<div class="usage-legend-row"><span class="usage-dot" style="background:${palette[i%palette.length]}"></span><span class="usage-name">${escapeHtml(x.v.name)}</span><strong>${percentage.toFixed(1)}%</strong></div>`}).join('')}</div></div>`:'<p class="muted">Log trips with Garage vehicles to see your mobility mix.</p>';
-
-  const cyclingTypes=['bicycle','ebike','speed_pedelec'];
-  const cyclingKm=state.trips.filter(t=>cyclingTypes.includes(vehicleById(t.vehicleId)?.type)).reduce((s,t)=>s+Number(t.km||0),0);
-  const estimatedCo2Saved=cyclingKm*0.17;
-
+  const filtered=rowsForReport(),trips=filtered.trips,expenses=filtered.expenses,bounds=reportDateBounds();
+  const totalKm=trips.reduce((s,t)=>s+Number(t.km||0),0),totalCost=expenses.reduce((s,e)=>s+Number(e.amount||0),0),receipts=expenses.filter(e=>e.attachment).length;
+  const vehicleRows=state.vehicles.map(v=>({v,km:trips.filter(t=>t.vehicleId===v.id).reduce((s,t)=>s+Number(t.km||0),0),tripCount:trips.filter(t=>t.vehicleId===v.id).length,cost:expenses.filter(e=>e.vehicleId===v.id).reduce((s,e)=>s+Number(e.amount||0),0)}));
+  const byVehicle=vehicleRows.filter(x=>x.km>0).sort((a,b)=>b.km-a.km),byTrips=vehicleRows.filter(x=>x.tripCount>0).map(x=>({v:x.v,value:x.tripCount})).sort((a,b)=>b.value-a.value),byCost=vehicleRows.filter(x=>x.cost>0).map(x=>({v:x.v,value:x.cost})).sort((a,b)=>b.value-a.value);
+  const palette=['#ff9d1c','#ffc14d','#f07818','#d9a441','#f4f4f4','#9b9b9f','#6f7075','#45464b'];let cursor=0;
+  const gradientParts=byVehicle.map((x,i)=>{const p=totalKm?x.km/totalKm*100:0,from=cursor;cursor+=p;return `${palette[i%palette.length]} ${from.toFixed(2)}% ${cursor.toFixed(2)}%`});
+  const usageChart=byVehicle.length?`<div class="usage-mix-layout"><div class="usage-donut" role="img" aria-label="Share of logged distance by vehicle" style="--usage-gradient:conic-gradient(${gradientParts.join(',')})"><div><strong>${byVehicle.length}</strong><span>${t('vehicles')}</span></div></div><div class="usage-legend">${byVehicle.map((x,i)=>{const p=totalKm?x.km/totalKm*100:0;return `<div class="usage-legend-row"><span class="usage-dot" style="background:${palette[i%palette.length]}"></span><span class="usage-name">${escapeHtml(x.v.name)}</span><strong>${p.toFixed(1)}% <small>${unitDistance(x.km)}</small></strong></div>`}).join('')}</div></div>`:'<p class="muted">Log trips with Garage vehicles to see your mobility mix.</p>';
+  const cyclingTypes=['bicycle','ebike','speed_pedelec'],cyclingKm=trips.filter(x=>cyclingTypes.includes(vehicleById(x.vehicleId)?.type)).reduce((s,x)=>s+Number(x.km||0),0),estimatedCo2Saved=cyclingKm*.17;
+  const customOpen=reportPeriod==='custom'?'':'hidden';
   statsContent.innerHTML=`
-    <div class="card usage-mix-card">
-      <div class="section-head"><div><h3>Vehicle usage mix</h3><p class="muted">Share of your logged distance</p></div></div>
-      ${usageChart}
-    </div>
+    <div class="report-filter card"><div class="section-head"><div><h3>Period</h3><p class="muted">${escapeHtml(bounds.label)}</p></div></div><div class="report-filter-chips"><button data-report-period="month" class="${reportPeriod==='month'?'active':''}">Last month</button><button data-report-period="year" class="${reportPeriod==='year'?'active':''}">This year</button><button data-report-period="all" class="${reportPeriod==='all'?'active':''}">All</button><button data-report-period="custom" class="${reportPeriod==='custom'?'active':''}">From–to</button></div><div class="report-custom-range ${customOpen}"><label>From<input id="reportFrom" type="date" value="${safeAttr(reportCustomFrom)}"></label><label>To<input id="reportTo" type="date" value="${safeAttr(reportCustomTo)}"></label></div></div>
+    <div class="card usage-mix-card"><div class="section-head"><div><h3>Vehicle usage mix</h3><p class="muted">Share of logged distance · ${unitDistance(totalKm)}</p></div></div>${usageChart}</div>
     <div class="stats-kpi-grid">
-      <div class="card stat-summary-row"><span>Total trips</span><strong>${state.trips.length}</strong></div>
+      <div class="card analysis-card"><button class="stat-summary-row analysis-toggle" data-analysis-toggle="trips"><span>Total trips</span><strong>${trips.length}<i>${openReportPanels.has('trips')?'−':'+'}</i></strong></button><div class="analysis-details ${openReportPanels.has('trips')?'':'hidden'}">${analysisBar(byTrips,trips.length,palette)}<div class="analysis-list">${vehicleBreakdownRows(byTrips,trips.length,n=>String(n))}</div></div></div>
       <div class="card stat-summary-row"><span>Total distance</span><strong>${unitDistance(totalKm)}</strong></div>
-      <div class="card stat-summary-row"><span>Total costs</span><strong>${money(totalCost)}</strong></div>
+      <div class="card analysis-card"><button class="stat-summary-row analysis-toggle" data-analysis-toggle="costs"><span>Total costs</span><strong>${money(totalCost)}<i>${openReportPanels.has('costs')?'−':'+'}</i></strong></button><div class="analysis-details ${openReportPanels.has('costs')?'':'hidden'}">${analysisBar(byCost,totalCost,palette)}<div class="analysis-list">${vehicleBreakdownRows(byCost,totalCost,money)}</div></div></div>
       <div class="card stat-summary-row"><span>Receipts</span><strong>${receipts}</strong></div>
     </div>
-    <div class="card">
-      <h3>Distance per vehicle</h3>
-      <div class="vehicle-distance-list">${byVehicle.map(x=>`<div class="vehicle-distance-row"><span class="vehicle-distance-icon">${iconType(x.v.type)}</span><span class="vehicle-distance-name">${escapeHtml(x.v.name)}</span><strong>${unitDistance(x.km)}</strong></div>`).join('')||'<p class="muted">No distance yet.</p>'}</div>
-    </div>
-    <div class="card impact-card">
-      <h3>Estimated impact</h3>
-      <div class="impact-row"><span>Cycling distance</span><strong>${unitDistance(cyclingKm)}</strong></div>
-      <div class="impact-row"><span>Estimated CO₂ avoided</span><strong>${estimatedCo2Saved.toFixed(1)} kg</strong></div>
-      <p class="muted">Estimated against an avoided average car journey. Actual savings vary by vehicle, energy source and route.</p>
-    </div>`;
+    <div class="card"><div class="section-head report-section-title"><h3>Distance per vehicle</h3><strong>${unitDistance(totalKm)} total</strong></div><div class="vehicle-distance-list">${byVehicle.map(x=>`<div class="vehicle-distance-row"><span class="vehicle-distance-icon">${iconType(x.v.type)}</span><span class="vehicle-distance-name">${escapeHtml(x.v.name)}</span><strong>${unitDistance(x.km)}</strong></div>`).join('')||'<p class="muted">No distance yet.</p>'}</div></div>
+    <div class="card impact-card"><h3>Estimated impact</h3><div class="impact-row"><span>Cycling distance</span><strong>${unitDistance(cyclingKm)}</strong></div><div class="impact-row"><span>Estimated CO₂ avoided</span><strong>${estimatedCo2Saved.toFixed(1)} kg</strong></div><p class="muted">Estimated against an avoided average car journey. Actual savings vary by vehicle, energy source and route.</p></div>`;
+  bindReportControls();
 }
+function buildPrintableReport(){
+  const {trips,expenses}=rowsForReport(),bounds=reportDateBounds(),totalKm=trips.reduce((s,x)=>s+Number(x.km||0),0),totalCost=expenses.reduce((s,x)=>s+Number(x.amount||0),0),attachments=expenses.filter(x=>safeAttachment(x.attachment));
+  document.getElementById('printReportRoot')?.remove();const root=document.createElement('section');root.id='printReportRoot';root.className='print-report-root';
+  const vehicleSummary=state.vehicles.map(v=>({v,km:trips.filter(x=>x.vehicleId===v.id).reduce((s,x)=>s+Number(x.km||0),0),cost:expenses.filter(x=>x.vehicleId===v.id).reduce((s,x)=>s+Number(x.amount||0),0),count:trips.filter(x=>x.vehicleId===v.id).length})).filter(x=>x.km||x.cost||x.count);
+  root.innerHTML=`<div class="print-report-page"><h1>MoBud mobility report</h1><p>${escapeHtml(bounds.label)} · ${escapeHtml(bounds.from)} — ${escapeHtml(bounds.to)}</p><div class="print-kpis"><div><span>Trips</span><strong>${trips.length}</strong></div><div><span>Distance</span><strong>${unitDistance(totalKm)}</strong></div><div><span>Costs</span><strong>${money(totalCost)}</strong></div><div><span>Receipts</span><strong>${attachments.length}</strong></div></div><h2>Summary per vehicle</h2><table><thead><tr><th>Vehicle</th><th>Trips</th><th>Distance</th><th>Costs</th></tr></thead><tbody>${vehicleSummary.map(x=>`<tr><td>${escapeHtml(x.v.name)}</td><td>${x.count}</td><td>${unitDistance(x.km)}</td><td>${money(x.cost)}</td></tr>`).join('')}</tbody></table></div>`;
+  attachments.forEach((expense,index)=>{const a=safeAttachment(expense.attachment),page=document.createElement('div');page.className='print-receipt-page';const head=document.createElement('div');head.className='print-receipt-head';head.innerHTML=`<h2>Receipt ${index+1} of ${attachments.length}</h2><p>${escapeHtml(expense.date||'')} · ${escapeHtml(vehicleById(expense.vehicleId)?.name||'No vehicle')} · ${money(expense.amount||0)} · ${escapeHtml(expense.category||'')}</p>`;page.append(head);const frame=document.createElement('div');frame.className='print-receipt-frame';if(a.type==='application/pdf'){const obj=document.createElement('object');obj.type='application/pdf';obj.data=a.data;obj.setAttribute('aria-label',a.name||'PDF receipt');const fallback=document.createElement('p');fallback.textContent=`PDF receipt: ${a.name}`;obj.append(fallback);frame.append(obj)}else{const img=document.createElement('img');img.src=a.data;img.alt=a.name||'Receipt';frame.append(img)}page.append(frame);root.append(page)});
+  document.body.append(root);return root;
+}
+function dataUrlBytes(dataUrl){const base64=String(dataUrl||'').split(',')[1]||'';const bin=atob(base64);const out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out}
+function reportFileName(){const b=reportDateBounds(),clean=x=>String(x).replace(/[^0-9A-Za-z_-]+/g,'-').replace(/^-+|-+$/g,'');return `MoBud-report-${clean(b.from)}-to-${clean(b.to)}.pdf`}
+async function createReportPdfBlob(){
+  if(!window.PDFLib)throw new Error('PDF library unavailable');
+  const {PDFDocument,StandardFonts,rgb}=PDFLib,{trips,expenses}=rowsForReport(),bounds=reportDateBounds();
+  const pdf=await PDFDocument.create(),font=await pdf.embedFont(StandardFonts.Helvetica),bold=await pdf.embedFont(StandardFonts.HelveticaBold);
+  const page=pdf.addPage([595.28,841.89]);let y=790;const draw=(text,size=10,x=48,f=font)=>{page.drawText(String(text),{x,y,size,font:f,color:rgb(0.08,0.08,0.09)});y-=size+7};
+  draw('MoBud mobility report',22,48,bold);draw(`${bounds.label} · ${bounds.from} — ${bounds.to}`,10);y-=8;
+  const totalKm=trips.reduce((a,x)=>a+Number(x.km||0),0),totalCost=expenses.reduce((a,x)=>a+Number(x.amount||0),0),attachments=expenses.filter(x=>safeAttachment(x.attachment));
+  draw(`Trips: ${trips.length}`,12,48,bold);draw(`Distance: ${unitDistance(totalKm)}`,12,48,bold);draw(`Costs: ${money(totalCost)}`,12,48,bold);draw(`Receipts: ${attachments.length}`,12,48,bold);y-=10;draw('Summary per vehicle',14,48,bold);
+  for(const v of state.vehicles){const vt=trips.filter(x=>x.vehicleId===v.id),ve=expenses.filter(x=>x.vehicleId===v.id),km=vt.reduce((a,x)=>a+Number(x.km||0),0),cost=ve.reduce((a,x)=>a+Number(x.amount||0),0);if(!vt.length&&!ve.length)continue;if(y<80){y=790;const p=pdf.addPage([595.28,841.89]);p.drawText('Summary continued',{x:48,y,size:14,font:bold})}draw(`${v.name}: ${vt.length} trips · ${unitDistance(km)} · ${money(cost)}`,10)}
+  for(const expense of attachments){const a=safeAttachment(expense.attachment);if(!a)continue;try{
+    if(a.type==='application/pdf'){
+      const src=await PDFDocument.load(dataUrlBytes(a.data),{ignoreEncryption:true});const copied=await pdf.copyPages(src,src.getPageIndices());copied.forEach(p=>pdf.addPage(p));
+    }else{
+      const p=pdf.addPage([595.28,841.89]);p.drawText(`Receipt · ${expense.date||''} · ${vehicleById(expense.vehicleId)?.name||'No vehicle'} · ${money(expense.amount||0)}`,{x:36,y:810,size:10,font:bold});
+      const bytes=dataUrlBytes(a.data),img=a.type==='image/png'?await pdf.embedPng(bytes):await pdf.embedJpg(bytes);const maxW=523,maxH=745,scale=Math.min(maxW/img.width,maxH/img.height,1),w=img.width*scale,h=img.height*scale;p.drawImage(img,{x:(595.28-w)/2,y:35+(745-h)/2,width:w,height:h});
+    }
+  }catch(err){const p=pdf.addPage([595.28,841.89]);p.drawText(`Receipt could not be embedded: ${a.name||'unnamed file'}`,{x:48,y:790,size:11,font:bold})}}
+  const bytes=await pdf.save();return new Blob([bytes],{type:'application/pdf'});
+}
+async function archiveReportToDrive(blob,name){if(!state.settings.driveConnected||!sessionStorage.getItem('mobudGoogleToken'))return false;await uploadDriveBlob(name,blob,'application/pdf');return true}
+async function exportPdfReport(){try{toast('Creating PDF…');const blob=await createReportPdfBlob(),name=reportFileName();const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);const archived=await archiveReportToDrive(blob,name);toast(archived?'PDF exported and saved to Google Drive.':'PDF exported.')}catch(e){console.error(e);toast('Could not create the PDF report.')}}
+async function sharePdfReport(){try{toast('Creating PDF…');const blob=await createReportPdfBlob(),name=reportFileName(),file=new File([blob],name,{type:'application/pdf'});const archived=await archiveReportToDrive(blob,name);if(navigator.canShare?.({files:[file]})){await navigator.share({title:'MoBud mobility report',text:'MoBud mobility report',files:[file]});toast(archived?'PDF shared and saved to Google Drive.':'PDF shared.')}else{const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('Sharing files is not supported here; the PDF was downloaded instead.')}}catch(e){if(e?.name!=='AbortError'){console.error(e);toast('Could not share the PDF report.')}}}
+async function printFilteredReport(){try{const blob=await createReportPdfBlob(),name=reportFileName();await archiveReportToDrive(blob,name)}catch(e){console.warn('Print archive skipped',e)}const root=buildPrintableReport();await new Promise(r=>setTimeout(r,500));window.print();setTimeout(()=>root.remove(),1500)}
 function renderCalendar(){calendarTitle.textContent=fmtMonth(calendarDate);const y=calendarDate.getFullYear(),m=calendarDate.getMonth(),first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate(),counts={};allRows().forEach(x=>counts[x.date]=(counts[x.date]||0)+1);let html='';for(let i=0;i<first;i++)html+='<span></span>';for(let d=1;d<=days;d++){const iso=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;html+=`<button class="cal-day ${counts[iso]?'filled':''} ${iso===selectedDay?'selected':''} ${iso===todayISO()?'today':''}" data-day="${iso}"><span>${d}</span>${counts[iso]?`<small>${counts[iso]}</small>`:''}</button>`}calendarGrid.innerHTML=html;document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{selectedDay=b.dataset.day;renderCalendar()});selectedDayTitle.textContent=new Date(selectedDay+'T12:00:00').toLocaleDateString(undefined,{weekday:'long',day:'numeric',month:'long'});const rows=allRows().filter(x=>x.date===selectedDay);dayLogs.innerHTML=rows.length?rows.map(logHtml).join(''):'No registrations on this day.';bindLogButtons(dayLogs)}
 function renderSettings(){
   settingName.value=state.settings.name||'';
@@ -349,6 +378,25 @@ async function listDriveFiles(query,fields='files(id,name,modifiedTime)'){const 
 async function findDriveFile(name){const files=await listDriveFiles(`name='${name.replaceAll("'","\\'")}' and 'appDataFolder' in parents and trashed=false`);return files.sort((a,b)=>String(b.modifiedTime).localeCompare(String(a.modifiedTime)))[0]||null}
 async function downloadDriveJson(fileId){const r=await driveFetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}?alt=media`);if(!r.ok)throw new Error(`Drive download failed (${r.status})`);const text=await r.text();if(text.length>MAX_BACKUP_BYTES)throw new Error('Drive backup too large');const data=JSON.parse(text);if(!validData(data))throw new Error('Invalid Drive backup');return data}
 async function uploadDriveJson(name,data,existingId=''){const metadata={name,mimeType:'application/json'};if(!existingId)metadata.parents=['appDataFolder'];const boundary='mobud_'+Math.random().toString(36).slice(2);const body=`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(metadata)}\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n${JSON.stringify(data)}\r\n--${boundary}--`;const endpoint=existingId?`https://www.googleapis.com/upload/drive/v3/files/${encodeURIComponent(existingId)}?uploadType=multipart`:'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';const r=await driveFetch(endpoint,{method:existingId?'PATCH':'POST',headers:{'Content-Type':`multipart/related; boundary=${boundary}`},body});if(!r.ok)throw new Error(`Drive upload failed (${r.status})`);return r.json()}
+async function uploadDriveBlob(name,blob,mimeType='application/pdf'){
+  const metadata={name,mimeType,parents:['appDataFolder']};
+  const boundary='mobud_'+Math.random().toString(36).slice(2);
+  const metaBlob=new Blob([`--${boundary}
+Content-Type: application/json; charset=UTF-8
+
+${JSON.stringify(metadata)}
+--${boundary}
+Content-Type: ${mimeType}
+
+`],{type:'application/octet-stream'});
+  const endBlob=new Blob([`
+--${boundary}--`],{type:'application/octet-stream'});
+  const body=new Blob([metaBlob,blob,endBlob],{type:`multipart/related; boundary=${boundary}`});
+  const r=await driveFetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',{method:'POST',headers:{'Content-Type':`multipart/related; boundary=${boundary}`},body});
+  if(!r.ok)throw new Error(`Drive PDF upload failed (${r.status})`);
+  return r.json();
+}
+
 function recordTime(x){return Date.parse(x?.updatedAt||x?.createdAt||0)||0}
 function mergeCollection(localRows,remoteRows,localDeleted=[],remoteDeleted=[]){const deleted=new Map();[...localDeleted,...remoteDeleted].forEach(x=>{const old=deleted.get(x.id);if(!old||Date.parse(x.deletedAt||0)>Date.parse(old.deletedAt||0))deleted.set(x.id,x)});const rows=new Map();[...(localRows||[]),...(remoteRows||[])].forEach(x=>{if(!x?.id)return;const old=rows.get(x.id);if(!old||recordTime(x)>recordTime(old)||(recordTime(x)===recordTime(old)&&String(x.updatedByDevice||'')>String(old.updatedByDevice||'')))rows.set(x.id,x)});for(const [id,tomb] of deleted){const row=rows.get(id);if(!row||Date.parse(tomb.deletedAt||0)>=recordTime(row))rows.delete(id);else deleted.delete(id)}return {rows:[...rows.values()],deleted:[...deleted.values()]}}
 function mergeState(localData,remoteData){
@@ -425,7 +473,7 @@ tripFrom.onchange=()=>{const other=tripFrom.value==='other';tripFromOtherWrap.cl
 cancelTripEdit.onclick=resetTrip;cancelExpenseEdit.onclick=resetExpense;commuteReminderMode.onchange=requestReminderPermission;
 function buildBackupPayload(){return {...state,settings:{...state.settings},vehicles:[...state.vehicles],trips:[...state.trips],expenses:[...state.expenses],exportedAt:new Date().toISOString(),exportVersion:VERSION}}
 function downloadBackup(reason='manual'){const payload=buildBackupPayload();const b=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`mobud-backup-${reason}-${todayISO()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);return payload}
-exportJson.onclick=()=>downloadBackup('manual');importJson.onchange=e=>{const f=e.target.files[0];if(!f||!confirm('Replace current local data with this backup?'))return;if(f.size>MAX_BACKUP_BYTES){toast('Backup is too large');return}const r=new FileReader();r.onload=()=>{try{const raw=JSON.parse(r.result);if(!validData(raw))throw new Error('Invalid backup');const imported=normalized(raw);state=imported;save();toast(`Backup imported · ${state.vehicles.length} garage vehicle(s)`)}catch{toast('Invalid backup')}};r.readAsText(f)};printReport.onclick=()=>window.print();
+exportJson.onclick=()=>downloadBackup('manual');importJson.onchange=e=>{const f=e.target.files[0];if(!f||!confirm('Replace current local data with this backup?'))return;if(f.size>MAX_BACKUP_BYTES){toast('Backup is too large');return}const r=new FileReader();r.onload=()=>{try{const raw=JSON.parse(r.result);if(!validData(raw))throw new Error('Invalid backup');const imported=normalized(raw);state=imported;save();toast(`Backup imported · ${state.vehicles.length} garage vehicle(s)`)}catch{toast('Invalid backup')}};r.readAsText(f)};printReport.onclick=printFilteredReport;exportPdf.onclick=exportPdfReport;sharePdf.onclick=sharePdfReport;
 linkDrive.onclick=linkGoogleDrive;syncDrive.onclick=()=>syncWithDrive({silent:false,reason:'manual'});driveBackupCreate.onclick=createManualDriveBackup;driveBackupImport.onclick=importDriveBackup;disconnectDrive.onclick=()=>{sessionStorage.removeItem('mobudGoogleToken');stopDriveLoops();state.settings.driveConnected=false;state.settings.storageMode='local';state.syncMeta.settingsUpdatedAt=new Date().toISOString();save({skipSync:true})};otherDeviceRecheck.onclick=async()=>{otherDeviceModal.classList.add('hidden');warnedSessionId='';await pollDriveChanges()};otherDeviceContinue.onclick=()=>{otherDeviceModal.classList.add('hidden');if(confirm('Wijzigingen op twee apparaten kunnen elkaar overschrijven. MoBud probeert conflicten te voorkomen, maar kan geen foutloze samenvoeging garanderen.'))toast('Je werkt verder op dit apparaat.')};checkUpdate.onclick=async()=>{const reg=await navigator.serviceWorker?.getRegistration();await reg?.update();toast(newWorker?'Update available':'You are using the latest loaded version')};replayTutorial.onclick=()=>startTutorial();requestBtn.onclick=()=>openFeedback('request');bugBtn.onclick=()=>openFeedback('bug');cancelFeedback.onclick=()=>feedbackModal.classList.add('hidden');feedbackForm.onsubmit=async e=>{e.preventDefault();if(!APP_CONFIG.SUPPORT_ENDPOINT_ENABLED){const p=feedbackPayload();navigator.clipboard?.writeText(JSON.stringify(p,null,2));toast('Support endpoint is not enabled yet; report copied to clipboard.');feedbackModal.classList.add('hidden');return}try{const r=await fetch(`${API}/support`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(feedbackPayload())});if(!r.ok)throw 0;toast('Report sent');feedbackModal.classList.add('hidden')}catch{toast('Could not send report')}};
 onboardAddVehicle.onclick=()=>openVehicle();onboardNext1.onclick=()=>{onboardingStep1.classList.add('hidden');onboardingStep2.classList.remove('hidden')};onboardBack2.onclick=()=>{onboardingStep2.classList.add('hidden');onboardingStep1.classList.remove('hidden')};onboardNext2.onclick=()=>{onboardingStep2.classList.add('hidden');onboardingStep3.classList.remove('hidden')};onboardBack3.onclick=()=>{onboardingStep3.classList.add('hidden');onboardingStep2.classList.remove('hidden')};finishOnboarding.onclick=finishOnboardingFlow;tutorialSkip.onclick=()=>tutorial.classList.add('hidden');tutorialNext.onclick=()=>{if(++tutorialIndex>=tutorialSteps.length){tutorial.classList.add('hidden');return}showTutorial()};
 const installBanner=document.getElementById('installBanner'),installNow=document.getElementById('installNow'),installLater=document.getElementById('installLater');
