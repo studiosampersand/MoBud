@@ -1,5 +1,5 @@
 # MoBud | Track your mobility and administration.
-An offline-first, multilingual webapp for commutes, mileage, receipts, vehicle costs and clear monthly or yearly reports.
+Offline-first, multilingual webapp for commutes, mileage, receipts, vehicle costs and clear monthly or yearly reports.
 
 • User-owned data
 • No adverts
