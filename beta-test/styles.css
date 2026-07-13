@@ -352,3 +352,8 @@ body[data-theme="light"] input[type="time"]{
 
 /* v0.000.010 final7 release polish */
 .file-actions{align-items:stretch}.file-actions .file-label{height:44px;min-height:44px;box-sizing:border-box;line-height:1;margin:0}.impact-group{padding:12px 0;border-top:1px solid var(--line)}.impact-group:first-of-type{border-top:0;padding-top:4px}.impact-group h4{margin:0 0 9px;font-size:14px}.impact-assumptions{border-top:1px solid var(--line);padding-top:12px;margin-top:8px}
+
+
+.data-safety-box{margin-top:12px;padding:14px;border:1px solid var(--border);border-radius:18px;background:rgba(255,159,10,.08)}
+.data-safety-box strong{display:block;margin-bottom:6px}
+.data-safety-box p{margin:6px 0;color:var(--muted)}

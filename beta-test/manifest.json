@@ -6,8 +6,8 @@
   "start_url": "/beta-test/",
   "scope": "/beta-test/",
   "display": "standalone",
-  "background_color": "#0f0f10",
-  "theme_color": "#0f0f10",
+  "background_color": "#111111",
+  "theme_color": "#ff9f0a",
   "orientation": "any",
   "icons": [
     {
@@ -29,5 +29,55 @@
       "purpose": "maskable"
     }
   ],
-  "version": "0.000.010"
+  "version": "0.000.016",
+  "shortcuts": [
+    {
+      "name": "Rit toevoegen",
+      "short_name": "Rit",
+      "description": "Snel een rit registreren",
+      "url": "/beta-test/#log-trip",
+      "icons": [
+        {
+          "src": "./icon-192-v005.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Kost of bonnetje",
+      "short_name": "Bonnetje",
+      "description": "Snel een kost of bonnetje registreren",
+      "url": "/beta-test/#log-expense",
+      "icons": [
+        {
+          "src": "./icon-192-v005.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Parkeerplek",
+      "short_name": "Parkeren",
+      "description": "Parkeerplek opslaan of bekijken",
+      "url": "/beta-test/#garage",
+      "icons": [
+        {
+          "src": "./icon-192-v005.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Rapporten",
+      "short_name": "Rapporten",
+      "description": "Rapporten openen",
+      "url": "/beta-test/#reports",
+      "icons": [
+        {
+          "src": "./icon-192-v005.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }
