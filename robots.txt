@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /beta-test/
+Allow: /
+Sitemap: https://mobud.app/sitemap.xml

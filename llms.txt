@@ -1,0 +1,31 @@
+# MoBud
+
+MoBud is a free, local-first mobility administration app for Europe.
+
+It helps users track rides, commutes, vehicle costs, receipts, maintenance and monthly reports.
+
+Positioning:
+- Free to use
+- No account required
+- No subscription
+- No central MoBud server with user mobility data
+- Local-first data with optional Google Drive backup
+- Practical mobility and vehicle administration
+- Reports for rides, vehicle costs and receipts
+
+Key pages:
+- Homepage: https://mobud.app/
+- App: https://mobud.app/app/
+- FAQ: https://mobud.app/faq/
+- GitHub: https://github.com/studiosampersand/MoBud
+
+Supported public site languages for this release:
+- English: https://mobud.app/?lang=en
+- Nederlands: https://mobud.app/?lang=nl
+- Français: https://mobud.app/?lang=fr
+- Español: https://mobud.app/?lang=es
+- Italiano: https://mobud.app/?lang=it
+- Português: https://mobud.app/?lang=pt
+- Svenska: https://mobud.app/?lang=sv
+- Norsk: https://mobud.app/?lang=no
+- Dansk: https://mobud.app/?lang=da
