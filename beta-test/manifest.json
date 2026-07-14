@@ -6,7 +6,7 @@
   "start_url": "/beta-test/",
   "scope": "/beta-test/",
   "display": "standalone",
-  "background_color": "#ffd34d",
+  "background_color": "#ff9d1c",
   "theme_color": "#171717",
   "orientation": "any",
   "icons": [
@@ -34,7 +34,7 @@
     {
       "name": "Rit toevoegen",
       "short_name": "Rit",
-      "description": "Log a trip",
+      "description": "Rit toevoegen",
       "url": "/beta-test/?action=add-trip",
       "icons": [
         {
@@ -47,7 +47,7 @@
     {
       "name": "Kost of bonnetje",
       "short_name": "Bonnetje",
-      "description": "Add a cost or receipt",
+      "description": "Kost of bonnetje",
       "url": "/beta-test/?action=add-expense",
       "icons": [
         {
@@ -60,7 +60,7 @@
     {
       "name": "Parkeerplek opslaan",
       "short_name": "Parkeren",
-      "description": "Open parking action",
+      "description": "Parkeerplek opslaan",
       "url": "/beta-test/?action=parking",
       "icons": [
         {
@@ -73,7 +73,7 @@
     {
       "name": "Rapporten openen",
       "short_name": "Rapporten",
-      "description": "Open reports",
+      "description": "Rapporten openen",
       "url": "/beta-test/?action=reports",
       "icons": [
         {
