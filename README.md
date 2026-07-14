@@ -10,3 +10,7 @@ Offline-first, multilingual webapp for commutes, mileage, receipts, vehicle cost
 • Belgian-made
 
 https://mobud.app/ for more info
+
+
+## v0.000.016 hotfix 0175
+- Forces Garage month cards and Garage action buttons into mobile grid columns for both /app and /beta-test.

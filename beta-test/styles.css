@@ -455,3 +455,95 @@ html,body,button,input,select,textarea,a{font-family:Inter,ui-sans-serif,system-
 #screen-garage .log-actions .ghost{font-size:12px!important;line-height:1.15!important}
 #screen-garage .partner-actions:empty{display:none!important}
 @media(max-width:620px){#screen-garage .garage-context-actions{grid-template-columns:repeat(3,minmax(0,1fr))!important}#screen-garage .partner-actions{grid-template-columns:repeat(2,minmax(0,1fr))!important}#screen-garage .garage-action-tile{font-size:14px!important;min-height:72px!important;padding:11px 6px!important}}
+
+
+/* v0.000.016 hotfix 0175 — force Garage month cards and action buttons into mobile grids */
+#screen-garage .vehicle-month-cards{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+  align-items:stretch!important;
+}
+#screen-garage .vehicle-month-cards button{
+  min-width:0!important;
+  width:100%!important;
+  min-height:86px!important;
+  padding:12px 8px!important;
+  text-align:center!important;
+  white-space:normal!important;
+}
+#screen-garage .vehicle-month-cards button small,
+#screen-garage .vehicle-month-cards button span{
+  display:block!important;
+  font-size:11px!important;
+  line-height:1.18!important;
+  white-space:normal!important;
+}
+#screen-garage .vehicle-month-cards button strong{
+  display:block!important;
+  font-size:18px!important;
+  line-height:1.1!important;
+  margin:5px 0!important;
+}
+#screen-garage .garage-context-actions{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+  align-items:stretch!important;
+}
+#screen-garage .partner-actions{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+  align-items:stretch!important;
+}
+#screen-garage .garage-action-tile{
+  min-width:0!important;
+  width:100%!important;
+  min-height:76px!important;
+  padding:12px 8px!important;
+  border-radius:16px!important;
+  font-size:14px!important;
+  line-height:1.16!important;
+  font-weight:850!important;
+  text-align:center!important;
+  white-space:normal!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+#screen-garage .garage-action-tile span{
+  display:block!important;
+  line-height:1.16!important;
+}
+@media(max-width:620px){
+  #screen-garage .vehicle-month-cards{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  #screen-garage .vehicle-month-cards button{
+    min-height:82px!important;
+    padding:10px 5px!important;
+  }
+  #screen-garage .vehicle-month-cards button small,
+  #screen-garage .vehicle-month-cards button span{
+    font-size:10px!important;
+  }
+  #screen-garage .vehicle-month-cards button strong{
+    font-size:16px!important;
+  }
+  #screen-garage .garage-context-actions{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  #screen-garage .partner-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  #screen-garage .garage-action-tile{
+    min-height:72px!important;
+    padding:10px 5px!important;
+    font-size:13px!important;
+    line-height:1.14!important;
+  }
+}
