@@ -676,12 +676,12 @@ async function renderFaq(){
       const question=item.question?.[lang]||item.question?.en||item.id;
       const answer=item.answer?.[lang]||item.answer?.en||'';
       const tutorial=item.tutorial||item.tutorialId||'';
-      return `<div class="faq-item"><button data-faq="${i}" aria-expanded="false"><span>${escapeHtml(question)}</span><span class="faq-chevron" aria-hidden="true"></span></button><div class="faq-answer hidden" id="faq_${i}">${escapeHtml(answer)} ${tutorial?`<button class="ghost small" data-tutorial-start="${escapeHtml(tutorial)}">Show tutorial</button>`:''}</div></div>`;
-    }).join('')+`<a class="secondary link-btn" href="/faq/">View all FAQ</a>`;
+      return `<div class="faq-item"><button data-faq="${i}" aria-expanded="false"><span>${escapeHtml(question)}</span><span class="faq-chevron" aria-hidden="true"></span></button><div class="faq-answer hidden" id="faq_${i}">${answer} ${tutorial?`<button class="ghost small" data-tutorial-start="${escapeHtml(tutorial)}">${t('Show tutorial')}</button>`:''}</div></div>`;
+    }).join('')+`<a class="secondary link-btn" href="/faq/">${t('View all FAQ')}</a>`;
     document.querySelectorAll('[data-faq]').forEach(b=>b.onclick=()=>{const answer=document.getElementById('faq_'+b.dataset.faq),open=!answer.classList.toggle('hidden');b.setAttribute('aria-expanded',String(open));b.closest('.faq-item')?.classList.toggle('open',open)});
     document.querySelectorAll('[data-tutorial-start]').forEach(b=>b.onclick=()=>startTutorial(b.dataset.tutorialStart));
   }catch(error){
-    faqList.innerHTML='<p class="muted">FAQ could not be loaded. Open the full FAQ page instead.</p><a class="secondary link-btn" href="/faq/">View FAQ</a>';
+    faqList.innerHTML=`<p class="muted">${t('FAQ could not be loaded. Open the full FAQ page instead.')}</p><a class="secondary link-btn" href="/faq/">${t('View FAQ')}</a>`;
   }
 }
 const tutorialSteps=[
