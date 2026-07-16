@@ -601,3 +601,7 @@ html,body,button,input,select,textarea,a{font-family:Inter,ui-sans-serif,system-
 .report-vehicle-name{display:block;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .report-more-link{width:34px;height:34px;padding:0!important;border-radius:50%;display:grid!important;place-items:center}
 .report-more-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* v0.000.025: calendar vehicle filter and backup settings hierarchy */
+.calendar-filter-row{display:grid;grid-template-columns:minmax(0,220px);gap:6px;margin:4px 0 16px}.calendar-filter-row label{font-size:12px;font-weight:800;color:var(--muted);margin:0}.calendar-filter-row select{width:100%;margin-top:6px}.storage-drive-card h4{font-size:16px;margin:0 0 6px}.drive-backup-block,.local-backup-block{display:grid;gap:8px}.drive-backup-block .legal-note,.local-backup-block .legal-note{margin:0}.storage-drive-card .data-trust-box{margin-top:18px}.storage-drive-card .sync-status{margin:0;color:var(--muted);font-size:12px}
+@media(max-width:640px){.calendar-filter-row{grid-template-columns:1fr}.storage-drive-card .hero-actions{display:grid;grid-template-columns:1fr}.storage-drive-card .hero-actions>*{width:100%;justify-content:center}}
