@@ -40,15 +40,15 @@
       "da": "Hvad er MoBud?"
     },
     "answer": {
-      "en": "MoBud is a free, local-first mobility administration app. It helps you track rides, commutes, vehicle costs, receipts, maintenance and monthly reports without requiring an account or subscription.",
-      "nl": "MoBud is een gratis, lokale app voor mobiliteitsadministratie. Je houdt er ritten, woon-werkverkeer, voertuigkosten, bonnetjes, onderhoud en maandrapporten mee bij zonder account of abonnement.",
-      "fr": "MoBud est une application gratuite et locale d’administration de mobilité. Elle vous aide à suivre les trajets, les déplacements domicile-travail, les frais de véhicule, les reçus, l’entretien et les rapports mensuels sans compte ni abonnement.",
-      "es": "MoBud es una app gratuita y local para la administración de movilidad. Te ayuda a registrar trayectos, desplazamientos al trabajo, costes de vehículos, recibos, mantenimiento e informes mensuales sin cuenta ni suscripción.",
-      "it": "MoBud è un’app gratuita e local-first per l’amministrazione della mobilità. Ti aiuta a registrare tragitti, pendolarismo, costi dei veicoli, ricevute, manutenzione e report mensili senza account o abbonamento.",
-      "pt": "O MoBud é uma aplicação gratuita e local-first para administração de mobilidade. Ajuda a registar viagens, deslocações, custos de veículos, recibos, manutenção e relatórios mensais sem conta nem subscrição.",
-      "sv": "MoBud är en gratis, local-first app för mobilitetsadministration. Den hjälper dig att logga resor, pendling, fordonskostnader, kvitton, underhåll och månadsrapporter utan konto eller abonnemang.",
-      "no": "MoBud er en gratis, local-first app for mobilitetsadministrasjon. Den hjelper deg å loggføre turer, pendling, kjøretøykostnader, kvitteringer, vedlikehold og månedsrapporter uten konto eller abonnement.",
-      "da": "MoBud er en gratis, local-first app til mobilitetsadministration. Den hjælper dig med at registrere ture, pendling, køretøjsomkostninger, kvitteringer, vedligehold og månedsrapporter uden konto eller abonnement."
+      "en": "MoBud is a free, local-first mobility administration app. It helps you track rides, commutes, vehicle costs, receipts, maintenance and monthly reports without requiring an account or subscription. MoBud is a project by Studio Sampersand, a Belgian solo developer studio.",
+      "nl": "MoBud is een gratis, lokale app voor mobiliteitsadministratie. Je houdt er ritten, woon-werkverkeer, voertuigkosten, bonnetjes, onderhoud en maandrapporten mee bij zonder account of abonnement. MoBud is een project van Studio Sampersand, een Belgische solo-developer.",
+      "fr": "MoBud est une application gratuite et locale d’administration de mobilité. Elle vous aide à suivre les trajets, les déplacements domicile-travail, les frais de véhicule, les reçus, l’entretien et les rapports mensuels sans compte ni abonnement. MoBud est un projet de Studio Sampersand, un studio belge de développement solo.",
+      "es": "MoBud es una app gratuita y local para la administración de movilidad. Te ayuda a registrar trayectos, desplazamientos al trabajo, costes de vehículos, recibos, mantenimiento e informes mensuales sin cuenta ni suscripción. MoBud es un proyecto de Studio Sampersand, un estudio belga de desarrollo independiente.",
+      "it": "MoBud è un’app gratuita e local-first per l’amministrazione della mobilità. Ti aiuta a registrare tragitti, pendolarismo, costi dei veicoli, ricevute, manutenzione e report mensili senza account o abbonamento. MoBud è un progetto di Studio Sampersand, uno studio belga di sviluppo indipendente.",
+      "pt": "O MoBud é uma aplicação gratuita e local-first para administração de mobilidade. Ajuda a registar viagens, deslocações, custos de veículos, recibos, manutenção e relatórios mensais sem conta nem subscrição. O MoBud é um projeto da Studio Sampersand, um estúdio belga de desenvolvimento independente.",
+      "sv": "MoBud är en gratis, local-first app för mobilitetsadministration. Den hjälper dig att logga resor, pendling, fordonskostnader, kvitton, underhåll och månadsrapporter utan konto eller abonnemang. MoBud är ett projekt av Studio Sampersand, en belgisk soloutvecklare.",
+      "no": "MoBud er en gratis, local-first app for mobilitetsadministrasjon. Den hjelper deg å loggføre turer, pendling, kjøretøykostnader, kvitteringer, vedlikehold og månedsrapporter uten konto eller abonnement. MoBud er et prosjekt fra Studio Sampersand, en belgisk soloutvikler.",
+      "da": "MoBud er en gratis, local-first app til mobilitetsadministration. Den hjælper dig med at registrere ture, pendling, køretøjsomkostninger, kvitteringer, vedligehold og månedsrapporter uden konto eller abonnement. MoBud er et projekt fra Studio Sampersand, en belgisk soloudvikler."
     }
   },
   {
