@@ -726,5 +726,31 @@
       "no": "Ja. Åpne Innstillinger eller FAQ/hjelp og velg å spille av veiledningen igjen når du vil ha en omvisning.",
       "da": "Ja. Åbn Indstillinger eller FAQ/hjælp og vælg at afspille guiden igen, når du vil have en rundvisning."
     }
+  },
+  {
+    "id": "move-to-new-phone",
+    "category": "backups",
+    "question": {
+      "en": "How do I move MoBud to a new phone?",
+      "nl": "Hoe verhuis ik MoBud naar een nieuwe telefoon?",
+      "fr": "Comment déplacer MoBud vers un nouveau téléphone ?",
+      "es": "¿Cómo muevo MoBud a un teléfono nuevo?",
+      "it": "Come sposto MoBud su un nuovo telefono?",
+      "pt": "Como mudo o MoBud para um novo telemóvel?",
+      "sv": "Hur flyttar jag MoBud till en ny telefon?",
+      "no": "Hvordan flytter jeg MoBud til en ny telefon?",
+      "da": "Hvordan flytter jeg MoBud til en ny telefon?"
+    },
+    "answer": {
+      "en": "Open <strong>Settings → Storage & Google Drive</strong> on your old phone and export a local data backup. Open MoBud on the new phone, go to the same section and import that backup. If you use Google Drive, link Drive again afterwards so future changes can sync and merge where possible.",
+      "nl": "Open <strong>Instellingen → Opslag & Google Drive</strong> op je oude telefoon en exporteer een lokale gegevensbackup. Open MoBud op je nieuwe telefoon, ga naar dezelfde sectie en importeer die backup. Gebruik je Google Drive, koppel Drive daarna opnieuw zodat toekomstige wijzigingen kunnen synchroniseren en waar mogelijk worden samengevoegd.",
+      "fr": "Ouvrez <strong>Réglages → Stockage et Google Drive</strong> sur l’ancien téléphone et exportez une sauvegarde locale. Ouvrez MoBud sur le nouveau téléphone, allez dans la même section et importez cette sauvegarde. Si vous utilisez Google Drive, reconnectez Drive ensuite pour synchroniser et fusionner les changements lorsque possible.",
+      "es": "Abre <strong>Ajustes → Almacenamiento y Google Drive</strong> en el teléfono antiguo y exporta una copia local. Abre MoBud en el nuevo teléfono, ve a la misma sección e importa esa copia. Si usas Google Drive, vuelve a vincular Drive después para sincronizar y fusionar cambios cuando sea posible.",
+      "it": "Apri <strong>Impostazioni → Archiviazione e Google Drive</strong> sul vecchio telefono ed esporta un backup locale. Apri MoBud sul nuovo telefono, vai nella stessa sezione e importa quel backup. Se usi Google Drive, ricollega Drive dopo per sincronizzare e unire le modifiche quando possibile.",
+      "pt": "Abra <strong>Definições → Armazenamento e Google Drive</strong> no telemóvel antigo e exporte uma cópia local. Abra o MoBud no novo telemóvel, vá à mesma secção e importe essa cópia. Se usar Google Drive, volte a ligar o Drive depois para sincronizar e combinar alterações quando possível.",
+      "sv": "Öppna <strong>Inställningar → Lagring och Google Drive</strong> på den gamla telefonen och exportera en lokal backup. Öppna MoBud på den nya telefonen, gå till samma avsnitt och importera backupen. Om du använder Google Drive, koppla Drive igen efteråt så att ändringar kan synkas och slås ihop där det är möjligt.",
+      "no": "Åpne <strong>Innstillinger → Lagring og Google Drive</strong> på den gamle telefonen og eksporter en lokal backup. Åpne MoBud på den nye telefonen, gå til samme seksjon og importer backupen. Hvis du bruker Google Drive, kobler du Drive til på nytt etterpå slik at endringer kan synkroniseres og slås sammen der det er mulig.",
+      "da": "Åbn <strong>Indstillinger → Lagring og Google Drive</strong> på den gamle telefon og eksportér en lokal backup. Åbn MoBud på den nye telefon, gå til samme sektion og importér backupen. Hvis du bruger Google Drive, skal du forbinde Drive igen bagefter, så ændringer kan synkroniseres og flettes, hvor det er muligt."
+    }
   }
 ]
