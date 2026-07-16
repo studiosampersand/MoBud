@@ -1,4 +1,4 @@
-const VERSION='0.000.023';
+const VERSION='0.000.024';
 const KEY='mobud-beta-data-v0.000.009';
 const RECOVERY_PREFIX='mobud-recovery-';
 const PREFERENCES_KEY=KEY.includes('beta')?'mobud-beta-preferences-v1':'mobud-production-preferences-v1';
@@ -410,7 +410,7 @@ function reportDateBounds(){
   return {from:`${new Date().getFullYear()}-01-01`,to:today,label:t('This year')};
 }
 function rowsForReport(){const {from,to}=reportDateBounds(),matchesVehicle=x=>reportVehicleId==='all'||x.vehicleId===reportVehicleId,matchesPurpose=x=>reportPurpose==='all'||(x.purpose||'')===reportPurpose;const trips=state.trips.filter(x=>(x.date||'')>=from&&(x.date||'')<=to&&matchesVehicle(x)&&matchesPurpose(x));const vehicleIds=new Set(trips.map(x=>x.vehicleId).filter(Boolean));const expenses=state.expenses.filter(x=>(x.date||'')>=from&&(x.date||'')<=to&&matchesVehicle(x)&&(reportPurpose==='all'||!x.vehicleId||vehicleIds.has(x.vehicleId)));return {trips,expenses}}
-function vehicleBreakdownRows(values,total,formatter,kind){return values.length?values.map(x=>`<div class="analysis-list-row"><span class="vehicle-distance-icon">${iconType(x.v.type)}</span><span>${escapeHtml(vehicleOfficialName(x.v))}</span><strong>${formatter(x.value)} <small>${total?`${(x.value/total*100).toFixed(1)}%`:'0.0%'}</small></strong><button class="icon-link small report-more-link" data-report-overview="${safeAttr(kind)}" data-report-vehicle="${safeAttr(x.v.id)}" aria-label="${safeAttr(t('View more'))}">👁</button></div>`).join(''):'<p class="muted">No data in this period.</p>'}
+function vehicleBreakdownRows(values,total,formatter,kind){return values.length?values.map(x=>`<div class="analysis-list-row"><span class="vehicle-distance-icon">${iconType(x.v.type)}</span><span class="report-vehicle-name" title="${safeAttr(vehicleOfficialName(x.v))}">${escapeHtml(vehicleOfficialName(x.v))}</span><strong>${formatter(x.value)} <small>${total?`${(x.value/total*100).toFixed(1)}%`:'0.0%'}</small></strong><button class="icon-link small report-more-link" data-report-overview="${safeAttr(kind)}" data-report-vehicle="${safeAttr(x.v.id)}" aria-label="${safeAttr(t('View more'))}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.75"/></svg></button></div>`).join(''):'<p class="muted">No data in this period.</p>'}
 function analysisBar(values,total,palette){return `<div class="analysis-bar" aria-label="Distribution by vehicle">${values.map((x,i)=>`<span style="width:${total?(x.value/total*100).toFixed(3):0}%;background:${palette[i%palette.length]}" title="${safeAttr(vehicleOfficialName(x.v))}"></span>`).join('')}</div>`}
 function showReportOverview(kind,vehicleId='all'){
   const rows=rowsForReport(),bounds=reportDateBounds(),filterVehicle=x=>vehicleId==='all'||x.vehicleId===vehicleId;let list=[];
