@@ -3,7 +3,7 @@ const CACHE_NAME = 'mobud-public-site-v2';
 const ASSETS = [
   '/',
   '/faq/',
-  '/legal/',
+  '/legal/','/contact/',
   '/assets/site.css',
   '/assets/site.js',
   '/assets/mobud-icon.png',

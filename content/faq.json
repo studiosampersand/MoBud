@@ -1,62 +1,5 @@
 [
   {
-    "id": "drive-automatic-sync",
-    "question": {
-      "nl": "Synchroniseert MoBud automatisch met Google Drive?",
-      "en": "Does MoBud sync automatically with Google Drive?",
-      "fr": "MoBud se synchronise-t-il automatiquement avec Google Drive ?",
-      "de": "Synchronisiert MoBud automatisch mit Google Drive?",
-      "es": "¿MoBud se sincroniza automáticamente con Google Drive?",
-      "it": "MoBud si sincronizza automaticamente con Google Drive?",
-      "pt": "O MoBud sincroniza automaticamente com o Google Drive?",
-      "sv": "Synkroniserar MoBud automatiskt med Google Drive?",
-      "no": "Synkroniserer MoBud automatisk med Google Drive?",
-      "da": "Synkroniserer MoBud automatisk med Google Drive?"
-    },
-    "answer": {
-      "nl": "Nee. MoBud bewaart je gegevens lokaal. Je kiest zelf wanneer je een Google Drive-back-up maakt of importeert. Dit beperkt langdurige accounttoegang en voorkomt dat een tijdelijke Drive-fout je lokale gegevens beïnvloedt.",
-      "en": "No. MoBud stores your data locally. You choose when to create or import a Google Drive backup. This limits long-lived account access and prevents a temporary Drive error from affecting local data.",
-      "fr": "Non. MoBud conserve vos données localement. Vous choisissez quand créer ou importer une sauvegarde Google Drive.",
-      "de": "Nein. MoBud speichert deine Daten lokal. Du entscheidest, wann du ein Google-Drive-Backup erstellst oder importierst.",
-      "es": "No. MoBud guarda tus datos localmente. Tú decides cuándo crear o importar una copia de Google Drive. Esto limita el acceso prolongado a tu cuenta y evita que un error temporal de Drive afecte a tus datos locales.",
-      "it": "No. MoBud salva i dati localmente. Decidi tu quando creare o importare un backup di Google Drive. Questo limita l’accesso prolungato all’account e impedisce che un errore temporaneo di Drive influisca sui dati locali.",
-      "pt": "Não. O MoBud guarda os dados localmente. Decide quando criar ou importar uma cópia do Google Drive. Isto limita o acesso prolongado à conta e evita que um erro temporário do Drive afete os dados locais.",
-      "sv": "Nej. MoBud lagrar dina data lokalt. Du väljer själv när du skapar eller importerar en Google Drive-backup. Det begränsar långvarig kontoåtkomst och hindrar tillfälliga Drive-fel från att påverka lokala data.",
-      "no": "Nei. MoBud lagrer dataene lokalt. Du velger selv når du oppretter eller importerer en Google Drive-backup. Dette begrenser langvarig kontotilgang og hindrer midlertidige Drive-feil i å påvirke lokale data.",
-      "da": "Nej. MoBud gemmer dine data lokalt. Du vælger selv, hvornår du opretter eller importerer en Google Drive-backup. Det begrænser langvarig kontoadgang og forhindrer midlertidige Drive-fejl i at påvirke lokale data."
-    }
-  },
-  {
-    "id": "drive-login-each-time",
-    "question": {
-      "nl": "Waarom moet ik mij opnieuw aanmelden voor een Drive-back-up?",
-      "en": "Why do I sign in again for a Drive backup?",
-      "fr": "Pourquoi dois-je me reconnecter pour une sauvegarde Drive ?",
-      "de": "Warum muss ich mich für ein Drive-Backup erneut anmelden?"
-    },
-    "answer": {
-      "nl": "MoBud houdt bewust geen permanente Google Drive-sessie actief. Je verleent alleen tijdelijk toegang wanneer je zelf op ‘Back-up maken’ of ‘Back-up importeren’ drukt. Na de handeling blijft MoBud volledig lokaal werken.",
-      "en": "MoBud deliberately keeps no permanent Google Drive session. Access is temporary and only requested when you choose Backup or Import. Afterward MoBud continues locally.",
-      "fr": "MoBud ne maintient volontairement aucune session Google Drive permanente. L’accès est temporaire lors d’une sauvegarde ou d’un import.",
-      "de": "MoBud hält bewusst keine dauerhafte Google-Drive-Sitzung offen. Zugriff wird nur vorübergehend für Backup oder Import angefordert."
-    }
-  },
-  {
-    "id": "drive-multi-device-merge",
-    "question": {
-      "nl": "Wat als ik op meerdere toestellen wijzigingen heb gemaakt?",
-      "en": "What if I changed data on multiple devices?",
-      "fr": "Que se passe-t-il si j’ai modifié des données sur plusieurs appareils ?",
-      "de": "Was passiert bei Änderungen auf mehreren Geräten?"
-    },
-    "answer": {
-      "nl": "Bij een Drive-back-up of import vergelijkt MoBud de lokale gegevens met de Drive-versie. Nieuwe records worden behouden en recente wijzigingen worden samengevoegd waar mogelijk. Je krijgt eerst een overzicht voordat lokale gegevens worden aangepast.",
-      "en": "During backup or import, MoBud compares local data with the Drive version. Unique records are retained and recent changes are merged where possible. A preview is shown before local data changes.",
-      "fr": "Lors d’une sauvegarde ou d’un import, MoBud compare les données locales à la version Drive et les fusionne lorsque possible.",
-      "de": "Bei Backup oder Import vergleicht MoBud lokale Daten mit der Drive-Version und führt sie soweit möglich zusammen."
-    }
-  },
-  {
     "id": "public-install",
     "category": "getting-started",
     "question": {
@@ -68,7 +11,10 @@
       "pt": "Como instalo o MoBud?",
       "sv": "Hur installerar jag MoBud?",
       "no": "Hvordan installerer jeg MoBud?",
-      "da": "Hvordan installerer jeg MoBud?"
+      "da": "Hvordan installerer jeg MoBud?",
+      "de": "Wie installiere ich MoBud?",
+      "de-CH": "Wie installiere ich MoBud?",
+      "pl": "Jak zainstalować MoBud?"
     },
     "answer": {
       "en": "Open <a href=\"/app/\">mobud.app/app</a> in your browser and choose Install. On Android and supported desktop browsers, use the install prompt. On iPhone or iPad, use Share → Add to Home Screen. MoBud is a webapp, not an App Store or Google Play download.",
@@ -79,7 +25,10 @@
       "pt": "Abra <a href=\"/app/\">mobud.app/app</a> no navegador e escolha Instalar. No Android e em navegadores de desktop compatíveis, use o aviso de instalação. No iPhone ou iPad, use Partilhar → Adicionar ao ecrã principal. O MoBud é uma webapp, não uma aplicação da App Store ou Google Play.",
       "sv": "Öppna <a href=\"/app/\">mobud.app/app</a> i webbläsaren och välj Installera. På Android och stödda datorwebbläsare använder du installationsmeddelandet. På iPhone eller iPad använder du Dela → Lägg till på hemskärmen. MoBud är en webapp, inte en nedladdning från App Store eller Google Play.",
       "no": "Åpne <a href=\"/app/\">mobud.app/app</a> i nettleseren og velg Installer. På Android og støttede skrivebordsnettlesere bruker du installasjonsmeldingen. På iPhone eller iPad bruker du Del → Legg til på Hjem-skjermen. MoBud er en webapp, ikke en nedlasting fra App Store eller Google Play.",
-      "da": "Åbn <a href=\"/app/\">mobud.app/app</a> i browseren, og vælg Installer. På Android og understøttede desktopbrowsere bruger du installationsprompten. På iPhone eller iPad bruger du Del → Føj til hjemmeskærm. MoBud er en webapp, ikke en download fra App Store eller Google Play."
+      "da": "Åbn <a href=\"/app/\">mobud.app/app</a> i browseren, og vælg Installer. På Android og understøttede desktopbrowsere bruger du installationsprompten. På iPhone eller iPad bruger du Del → Føj til hjemmeskærm. MoBud er en webapp, ikke en download fra App Store eller Google Play.",
+      "de": "Öffne <a href=\"/app/\">mobud.app/app</a> im Browser und wähle Installieren. Unter Android und in unterstützten Desktop-Browsern nutzt du den Installationshinweis. Auf iPhone oder iPad wählst du Teilen → Zum Home-Bildschirm. MoBud ist eine Web-App und kein Download aus App Store oder Google Play.",
+      "de-CH": "Öffne <a href=\"/app/\">mobud.app/app</a> im Browser und wähle Installieren. Unter Android und in unterstützten Desktop-Browsern nutzt du den Installationshinweis. Auf iPhone oder iPad wählst du Teilen → Zum Home-Bildschirm. MoBud ist eine Web-App und kein Download aus App Store oder Google Play.",
+      "pl": "Otwórz <a href=\"/app/\">mobud.app/app</a> w przeglądarce i wybierz Instaluj. Na Androidzie i obsługiwanych przeglądarkach komputerowych użyj monitu instalacji. Na iPhonie lub iPadzie wybierz Udostępnij → Dodaj do ekranu początkowego. MoBud jest aplikacją internetową, a nie plikiem z App Store lub Google Play."
     }
   },
   {
@@ -94,7 +43,10 @@
       "pt": "O que é o MoBud?",
       "sv": "Vad är MoBud?",
       "no": "Hva er MoBud?",
-      "da": "Hvad er MoBud?"
+      "da": "Hvad er MoBud?",
+      "de": "Was ist MoBud?",
+      "de-CH": "Was ist MoBud?",
+      "pl": "Czym jest MoBud?"
     },
     "answer": {
       "en": "MoBud is a free, local-first mobility administration app. It helps you track rides, commutes, vehicle costs, receipts, maintenance and monthly reports without requiring an account or subscription.",
@@ -105,7 +57,10 @@
       "pt": "O MoBud é uma aplicação gratuita e local-first para administração de mobilidade. Ajuda a registar viagens, deslocações, custos de veículos, recibos, manutenção e relatórios mensais sem conta nem subscrição.",
       "sv": "MoBud är en gratis, local-first app för mobilitetsadministration. Den hjälper dig att logga resor, pendling, fordonskostnader, kvitton, underhåll och månadsrapporter utan konto eller abonnemang.",
       "no": "MoBud er en gratis, local-first app for mobilitetsadministrasjon. Den hjelper deg å loggføre turer, pendling, kjøretøykostnader, kvitteringer, vedlikehold og månedsrapporter uten konto eller abonnement.",
-      "da": "MoBud er en gratis, local-first app til mobilitetsadministration. Den hjælper dig med at registrere ture, pendling, køretøjsomkostninger, kvitteringer, vedligehold og månedsrapporter uden konto eller abonnement."
+      "da": "MoBud er en gratis, local-first app til mobilitetsadministration. Den hjælper dig med at registrere ture, pendling, køretøjsomkostninger, kvitteringer, vedligehold og månedsrapporter uden konto eller abonnement.",
+      "de": "MoBud ist eine kostenlose, lokal ausgerichtete App zur Mobilitätsverwaltung. Sie hilft dir, Fahrten, Arbeitswege, Fahrzeugkosten, Belege, Wartung und Monatsberichte ohne Konto oder Abonnement zu verwalten.",
+      "de-CH": "MoBud ist eine kostenlose, lokal ausgerichtete App zur Mobilitätsverwaltung. Sie hilft dir, Fahrten, Arbeitswege, Fahrzeugkosten, Belege, Wartung und Monatsberichte ohne Konto oder Abonnement zu verwalten.",
+      "pl": "MoBud to bezpłatna aplikacja local-first do administracji mobilnością. Pomaga śledzić przejazdy, dojazdy, koszty pojazdów, paragony, serwis i raporty miesięczne bez konta ani abonamentu."
     }
   },
   {
@@ -120,7 +75,10 @@
       "pt": "Onde são guardados os meus dados?",
       "sv": "Var lagras mina data?",
       "no": "Hvor lagres dataene mine?",
-      "da": "Hvor gemmes mine data?"
+      "da": "Hvor gemmes mine data?",
+      "de": "Wo werden meine Daten gespeichert?",
+      "de-CH": "Wo werden meine Daten gespeichert?",
+      "pl": "Gdzie są przechowywane moje dane?"
     },
     "answer": {
       "en": "By default, locally on your device. MoBud does not run a central database containing your trips, addresses, vehicles, receipts or photos. You can optionally back up to your own Google Drive.",
@@ -131,7 +89,10 @@
       "pt": "Por defeito, localmente no seu dispositivo. O MoBud não tem uma base de dados central com viagens, moradas, veículos, recibos ou fotografias. Pode criar opcionalmente uma cópia de segurança no seu Google Drive.",
       "sv": "Som standard lokalt på din enhet. MoBud driver ingen central databas med dina resor, adresser, fordon, kvitton eller bilder. Du kan välja att säkerhetskopiera till din egen Google Drive.",
       "no": "Som standard lokalt på enheten din. MoBud har ingen sentral database med turer, adresser, kjøretøy, kvitteringer eller bilder. Du kan velge å sikkerhetskopiere til din egen Google Drive.",
-      "da": "Som standard lokalt på din enhed. MoBud driver ikke en central database med dine ture, adresser, køretøjer, kvitteringer eller fotos. Du kan vælge at sikkerhedskopiere til din egen Google Drive."
+      "da": "Som standard lokalt på din enhed. MoBud driver ikke en central database med dine ture, adresser, køretøjer, kvitteringer eller fotos. Du kan vælge at sikkerhedskopiere til din egen Google Drive.",
+      "de": "Standardmäßig lokal auf deinem Gerät. MoBud betreibt keine zentrale Datenbank mit deinen Fahrten, Adressen, Fahrzeugen, Belegen oder Fotos. Optional kannst du in deinem eigenen Google Drive sichern.",
+      "de-CH": "Standardmäßig lokal auf deinem Gerät. MoBud betreibt keine zentrale Datenbank mit deinen Fahrten, Adressen, Fahrzeugen, Belegen oder Fotos. Optional kannst du in deinem eigenen Google Drive sichern.",
+      "pl": "Domyślnie lokalnie na Twoim urządzeniu. MoBud nie prowadzi centralnej bazy danych z trasami, adresami, pojazdami, paragonami ani zdjęciami. Opcjonalnie możesz wykonać kopię w swoim Google Drive."
     }
   },
   {
@@ -146,7 +107,10 @@
       "pt": "O MoBud precisa de conta ou servidor central?",
       "sv": "Behöver MoBud ett konto eller en central server?",
       "no": "Trenger MoBud konto eller sentral server?",
-      "da": "Kræver MoBud konto eller central server?"
+      "da": "Kræver MoBud konto eller central server?",
+      "de": "Benötigt MoBud ein Konto oder einen zentralen Server?",
+      "de-CH": "Benötigt MoBud ein Konto oder einen zentralen Server?",
+      "pl": "Czy MoBud wymaga konta lub centralnego serwera?"
     },
     "answer": {
       "en": "No. MoBud works without a MoBud account and without a central MoBud server for your mobility records. Some optional features, such as Google Drive backup or address search, connect to external services only when you use them.",
@@ -157,7 +121,10 @@
       "pt": "Não. O MoBud funciona sem conta MoBud e sem servidor central MoBud para os seus registos de mobilidade. Algumas funções opcionais, como backup no Google Drive ou pesquisa de moradas, ligam-se a serviços externos apenas quando usadas.",
       "sv": "Nej. MoBud fungerar utan MoBud-konto och utan en central MoBud-server för dina mobilitetsuppgifter. Vissa frivilliga funktioner, som Google Drive-backup eller adressökning, ansluter till externa tjänster endast när du använder dem.",
       "no": "Nei. MoBud fungerer uten MoBud-konto og uten en sentral MoBud-server for mobilitetsdataene dine. Enkelte valgfrie funksjoner, som Google Drive-backup eller adressesøk, kobler til eksterne tjenester bare når du bruker dem.",
-      "da": "Nej. MoBud fungerer uden MoBud-konto og uden en central MoBud-server til dine mobilitetsdata. Nogle valgfrie funktioner, som Google Drive-backup eller adressesøgning, forbinder kun til eksterne tjenester, når du bruger dem."
+      "da": "Nej. MoBud fungerer uden MoBud-konto og uden en central MoBud-server til dine mobilitetsdata. Nogle valgfrie funktioner, som Google Drive-backup eller adressesøgning, forbinder kun til eksterne tjenester, når du bruger dem.",
+      "de": "Nein. MoBud funktioniert ohne MoBud-Konto und ohne zentralen MoBud-Server für deine Mobilitätsdaten. Optionale Funktionen wie Drive-Sicherung oder Adresssuche verbinden sich nur bei Nutzung mit externen Diensten.",
+      "de-CH": "Nein. MoBud funktioniert ohne MoBud-Konto und ohne zentralen MoBud-Server für deine Mobilitätsdaten. Optionale Funktionen wie Drive-Sicherung oder Adresssuche verbinden sich nur bei Nutzung mit externen Diensten.",
+      "pl": "Nie. MoBud działa bez konta MoBud i bez centralnego serwera dla danych mobilności. Opcjonalne funkcje, takie jak kopia Drive lub wyszukiwanie adresów, łączą się z usługami zewnętrznymi tylko podczas użycia."
     }
   },
   {
@@ -172,7 +139,10 @@
       "pt": "O MoBud é gratuito?",
       "sv": "Är MoBud gratis?",
       "no": "Er MoBud gratis?",
-      "da": "Er MoBud gratis?"
+      "da": "Er MoBud gratis?",
+      "de": "Ist MoBud kostenlos?",
+      "de-CH": "Ist MoBud kostenlos?",
+      "pl": "Czy MoBud jest bezpłatny?"
     },
     "answer": {
       "en": "Yes. MoBud is free to use, ad-free and subscription-free. Supporting development through “Buy me a coffee” is optional.",
@@ -183,7 +153,10 @@
       "pt": "Sim. O MoBud é gratuito, sem anúncios e sem subscrição. Apoiar o desenvolvimento através de “Buy me a coffee” é opcional.",
       "sv": "Ja. MoBud är gratis att använda, utan reklam och utan abonnemang. Att stödja utvecklingen via “Buy me a coffee” är frivilligt.",
       "no": "Ja. MoBud er gratis å bruke, uten reklame og uten abonnement. Å støtte utviklingen via “Buy me a coffee” er valgfritt.",
-      "da": "Ja. MoBud er gratis at bruge, uden reklamer og uden abonnement. Støtte via “Buy me a coffee” er valgfrit."
+      "da": "Ja. MoBud er gratis at bruge, uden reklamer og uden abonnement. Støtte via “Buy me a coffee” er valgfrit.",
+      "de": "Ja. MoBud ist kostenlos, werbefrei und ohne Abonnement. Eine freiwillige Unterstützung über „Buy me a coffee“ ist möglich.",
+      "de-CH": "Ja. MoBud ist kostenlos, werbefrei und ohne Abonnement. Eine freiwillige Unterstützung über „Buy me a coffee“ ist möglich.",
+      "pl": "Tak. MoBud jest bezpłatny, bez reklam i bez abonamentu. Dobrowolne wsparcie przez „Buy me a coffee” jest opcjonalne."
     }
   },
   {
@@ -198,7 +171,10 @@
       "pt": "Como funciona o backup no Google Drive?",
       "sv": "Hur fungerar Google Drive-backup?",
       "no": "Hvordan fungerer Google Drive-backup?",
-      "da": "Hvordan fungerer Google Drive-backup?"
+      "da": "Hvordan fungerer Google Drive-backup?",
+      "de": "Wie funktioniert die Google-Drive-Sicherung?",
+      "de-CH": "Wie funktioniert die Google-Drive-Sicherung?",
+      "pl": "Jak działa kopia zapasowa Google Drive?"
     },
     "answer": {
       "en": "If you enable it, MoBud stores a backup file in your own Google Drive app data area. This is optional. Local use and local JSON export remain available without Drive.",
@@ -209,7 +185,10 @@
       "pt": "Se ativar esta opção, o MoBud guarda um ficheiro de backup na área de dados da aplicação do seu Google Drive. É opcional. O uso local e a exportação JSON local continuam disponíveis sem Drive.",
       "sv": "Om du aktiverar det sparar MoBud en backupfil i appdataområdet i din egen Google Drive. Det är frivilligt. Lokal användning och lokal JSON-export fungerar utan Drive.",
       "no": "Hvis du aktiverer det, lagrer MoBud en backupfil i appdataområdet i din egen Google Drive. Dette er valgfritt. Lokal bruk og lokal JSON-eksport fungerer uten Drive.",
-      "da": "Hvis du aktiverer det, gemmer MoBud en backupfil i appdataområdet i din egen Google Drive. Det er valgfrit. Lokal brug og lokal JSON-eksport virker uden Drive."
+      "da": "Hvis du aktiverer det, gemmer MoBud en backupfil i appdataområdet i din egen Google Drive. Det er valgfrit. Lokal brug og lokal JSON-eksport virker uden Drive.",
+      "de": "Wenn du sie verwendest, speichert MoBud eine Sicherungsdatei im App-Datenbereich deines eigenen Google Drive. Das ist optional. Lokale Nutzung und lokaler JSON-Export bleiben ohne Drive verfügbar.",
+      "de-CH": "Wenn du sie verwendest, speichert MoBud eine Sicherungsdatei im App-Datenbereich deines eigenen Google Drive. Das ist optional. Lokale Nutzung und lokaler JSON-Export bleiben ohne Drive verfügbar.",
+      "pl": "Po wybraniu tej opcji MoBud zapisuje plik kopii w obszarze danych aplikacji na Twoim Google Drive. To opcjonalne. Lokalna praca i eksport JSON są dostępne bez Drive."
     }
   },
   {
@@ -224,7 +203,10 @@
       "pt": "Como funciona uma cópia de segurança local?",
       "sv": "Hur fungerar en lokal backup?",
       "no": "Hvordan fungerer en lokal backup?",
-      "da": "Hvordan fungerer en lokal backup?"
+      "da": "Hvordan fungerer en lokal backup?",
+      "de": "Wie funktioniert eine lokale Sicherung?",
+      "de-CH": "Wie funktioniert eine lokale Sicherung?",
+      "pl": "Jak działa lokalna kopia zapasowa?"
     },
     "answer": {
       "en": "A local backup downloads a JSON file to your device. Keep it somewhere safe. We recommend making a backup at least weekly, and always before updating the app or permanently deleting a vehicle.",
@@ -235,7 +217,10 @@
       "pt": "Uma cópia local descarrega um ficheiro JSON para o dispositivo. Guarde-o em segurança. Recomendamos uma cópia pelo menos semanal e sempre antes de atualizar a aplicação ou eliminar definitivamente um veículo.",
       "sv": "En lokal backup laddar ner en JSON-fil till din enhet. Spara den säkert. Vi rekommenderar backup minst varje vecka och alltid innan du uppdaterar appen eller tar bort ett fordon permanent.",
       "no": "En lokal backup laster ned en JSON-fil til enheten din. Oppbevar den trygt. Vi anbefaler backup minst ukentlig, og alltid før du oppdaterer appen eller sletter et kjøretøy permanent.",
-      "da": "En lokal backup downloader en JSON-fil til din enhed. Gem den sikkert. Vi anbefaler backup mindst ugentligt og altid før du opdaterer appen eller sletter et køretøj permanent."
+      "da": "En lokal backup downloader en JSON-fil til din enhed. Gem den sikkert. Vi anbefaler backup mindst ugentligt og altid før du opdaterer appen eller sletter et køretøj permanent.",
+      "de": "Eine lokale Sicherung lädt eine JSON-Datei auf dein Gerät herunter. Bewahre sie sicher auf. Wir empfehlen mindestens wöchentlich sowie vor Updates oder dem endgültigen Löschen eines Fahrzeugs eine Sicherung.",
+      "de-CH": "Eine lokale Sicherung lädt eine JSON-Datei auf dein Gerät herunter. Bewahre sie sicher auf. Wir empfehlen mindestens wöchentlich sowie vor Updates oder dem endgültigen Löschen eines Fahrzeugs eine Sicherung.",
+      "pl": "Lokalna kopia pobiera plik JSON na urządzenie. Przechowuj go bezpiecznie. Zalecamy kopię co najmniej raz w tygodniu oraz przed aktualizacją lub trwałym usunięciem pojazdu."
     }
   },
   {
@@ -250,7 +235,10 @@
       "pt": "O que acontece ao importar um backup?",
       "sv": "Vad händer när jag importerar en backup?",
       "no": "Hva skjer når jeg importerer en backup?",
-      "da": "Hvad sker der, når jeg importerer en backup?"
+      "da": "Hvad sker der, når jeg importerer en backup?",
+      "de": "Was passiert beim Import einer Sicherung?",
+      "de-CH": "Was passiert beim Import einer Sicherung?",
+      "pl": "Co się dzieje podczas importowania kopii zapasowej?"
     },
     "answer": {
       "en": "MoBud prefers merging over overwriting. It shows a preview of vehicles, trips, costs and receipts so you can avoid losing local entries. Overwrite options should be used only when you are certain.",
@@ -261,7 +249,10 @@
       "pt": "O MoBud prefere juntar dados em vez de substituir. Mostra uma pré-visualização de veículos, viagens, custos e recibos para evitar perder registos locais. A substituição deve ser usada apenas quando tiver a certeza.",
       "sv": "MoBud föredrar sammanslagning framför överskrivning. Du får en förhandsvisning av fordon, resor, kostnader och kvitton så att lokala poster inte försvinner. Överskrivning bör bara användas när du är säker.",
       "no": "MoBud foretrekker sammenslåing fremfor overskriving. Du får en forhåndsvisning av kjøretøy, turer, kostnader og kvitteringer for å unngå å miste lokale registreringer. Overskriving bør bare brukes når du er sikker.",
-      "da": "MoBud foretrækker fletning frem for overskrivning. Du ser en forhåndsvisning af køretøjer, ture, omkostninger og kvitteringer for at undgå at miste lokale registreringer. Overskrivning bør kun bruges, når du er sikker."
+      "da": "MoBud foretrækker fletning frem for overskrivning. Du ser en forhåndsvisning af køretøjer, ture, omkostninger og kvitteringer for at undgå at miste lokale registreringer. Overskrivning bør kun bruges, når du er sikker.",
+      "de": "MoBud bevorzugt Zusammenführen statt Überschreiben. Eine Vorschau zeigt Fahrzeuge, Fahrten, Kosten und Belege, damit lokale Einträge nicht verloren gehen. Überschreiben nur verwenden, wenn du sicher bist.",
+      "de-CH": "MoBud bevorzugt Zusammenführen statt Überschreiben. Eine Vorschau zeigt Fahrzeuge, Fahrten, Kosten und Belege, damit lokale Einträge nicht verloren gehen. Überschreiben nur verwenden, wenn du sicher bist.",
+      "pl": "MoBud preferuje scalanie zamiast nadpisywania. Podgląd pokazuje pojazdy, przejazdy, koszty i paragony, aby ograniczyć ryzyko utraty lokalnych wpisów. Nadpisuj tylko, gdy masz pewność."
     }
   },
   {
@@ -276,7 +267,10 @@
       "pt": "O que acontece quando o MoBud atualiza?",
       "sv": "Vad händer när MoBud uppdateras?",
       "no": "Hva skjer når MoBud oppdateres?",
-      "da": "Hvad sker der, når MoBud opdateres?"
+      "da": "Hvad sker der, når MoBud opdateres?",
+      "de": "Was passiert bei einem MoBud-Update?",
+      "de-CH": "Was passiert bei einem MoBud-Update?",
+      "pl": "Co się dzieje podczas aktualizacji MoBud?"
     },
     "answer": {
       "en": "MoBud should keep your existing local data. Before a major update, download a local backup first and confirm the update manually. Never clear site data unless you already have a recent backup.",
@@ -287,7 +281,10 @@
       "pt": "O MoBud deve manter os dados locais existentes. Antes de uma atualização importante, descarregue primeiro uma cópia local e confirme a atualização manualmente. Nunca limpe os dados do site sem um backup recente.",
       "sv": "MoBud ska behålla dina lokala data. Före en större uppdatering bör du ladda ner en lokal backup och bekräfta uppdateringen manuellt. Rensa aldrig webbplatsdata utan en färsk backup.",
       "no": "MoBud skal beholde de lokale dataene dine. Før en større oppdatering bør du laste ned en lokal backup og bekrefte oppdateringen manuelt. Ikke slett nettsteddata uten en fersk backup.",
-      "da": "MoBud bør bevare dine lokale data. Før en større opdatering bør du downloade en lokal backup og bekræfte opdateringen manuelt. Ryd aldrig webstedsdata uden en ny backup."
+      "da": "MoBud bør bevare dine lokale data. Før en større opdatering bør du downloade en lokal backup og bekræfte opdateringen manuelt. Ryd aldrig webstedsdata uden en ny backup.",
+      "de": "MoBud sollte deine vorhandenen lokalen Daten behalten. Lade vor einem größeren Update zuerst eine lokale Sicherung herunter und bestätige das Update manuell. Lösche niemals Website-Daten ohne aktuelle Sicherung.",
+      "de-CH": "MoBud sollte deine vorhandenen lokalen Daten behalten. Lade vor einem größeren Update zuerst eine lokale Sicherung herunter und bestätige das Update manuell. Lösche niemals Website-Daten ohne aktuelle Sicherung.",
+      "pl": "MoBud powinien zachować istniejące dane lokalne. Przed większą aktualizacją pobierz lokalną kopię i ręcznie potwierdź aktualizację. Nie czyść danych witryny bez aktualnej kopii."
     }
   },
   {
@@ -302,7 +299,10 @@
       "pt": "Por que devo criar um relatório mensal?",
       "sv": "Varför göra en månadsrapport?",
       "no": "Hvorfor lage en månedsrapport?",
-      "da": "Hvorfor lave en månedsrapport?"
+      "da": "Hvorfor lave en månedsrapport?",
+      "de": "Warum sollte ich einen Monatsbericht erstellen?",
+      "de-CH": "Warum sollte ich einen Monatsbericht erstellen?",
+      "pl": "Dlaczego warto tworzyć raport miesięczny?"
     },
     "answer": {
       "en": "A monthly report gives you a clear snapshot of rides, vehicle costs, receipts and totals before details are forgotten. It also lets you clean up stored receipt attachments after safely exporting the report.",
@@ -313,7 +313,10 @@
       "pt": "Um relatório mensal dá uma visão clara de viagens, custos de veículos, recibos e totais antes que os detalhes sejam esquecidos. Depois da exportação pode remover anexos de recibos para libertar espaço.",
       "sv": "En månadsrapport ger en tydlig överblick över resor, fordonskostnader, kvitton och totaler innan detaljer glöms bort. Efter export kan du ta bort kvittobilagor för att frigöra lagring.",
       "no": "En månedsrapport gir en tydelig oversikt over turer, kjøretøykostnader, kvitteringer og totaler før detaljer glemmes. Etter eksport kan du fjerne kvitteringsvedlegg for å frigjøre lagringsplass.",
-      "da": "En månedsrapport giver et klart overblik over ture, køretøjsomkostninger, kvitteringer og totaler, før detaljer bliver glemt. Efter eksport kan du fjerne kvitteringsbilag for at frigøre plads."
+      "da": "En månedsrapport giver et klart overblik over ture, køretøjsomkostninger, kvitteringer og totaler, før detaljer bliver glemt. Efter eksport kan du fjerne kvitteringsbilag for at frigøre plads.",
+      "de": "Ein Monatsbericht gibt dir einen klaren Überblick über Fahrten, Fahrzeugkosten, Belege und Summen, bevor Details vergessen werden. Danach kannst du gespeicherte Beleganhänge sicherer bereinigen.",
+      "de-CH": "Ein Monatsbericht gibt dir einen klaren Überblick über Fahrten, Fahrzeugkosten, Belege und Summen, bevor Details vergessen werden. Danach kannst du gespeicherte Beleganhänge sicherer bereinigen.",
+      "pl": "Raport miesięczny daje czytelny obraz przejazdów, kosztów, paragonów i sum, zanim szczegóły zostaną zapomniane. Ułatwia też późniejsze usunięcie wyeksportowanych załączników."
     }
   },
   {
@@ -328,7 +331,10 @@
       "pt": "Como faço um relatório mensal?",
       "sv": "Hur skapar jag en månadsrapport?",
       "no": "Hvordan lager jeg en månedsrapport?",
-      "da": "Hvordan laver jeg en månedsrapport?"
+      "da": "Hvordan laver jeg en månedsrapport?",
+      "de": "Wie erstelle ich einen Monatsbericht?",
+      "de-CH": "Wie erstelle ich einen Monatsbericht?",
+      "pl": "Jak utworzyć raport miesięczny?"
     },
     "answer": {
       "en": "Open Reports, choose the month and vehicle filter you need, then export the PDF. Use “all vehicles” for a complete overview or select one vehicle when you only want that vehicle in the report.",
@@ -339,7 +345,10 @@
       "pt": "Abra Relatórios, escolha o mês e o filtro de veículo necessário e exporte o PDF. Use “todos os veículos” para uma visão completa ou selecione um veículo específico.",
       "sv": "Öppna Rapporter, välj månad och fordonsfilter och exportera PDF-filen. Använd “alla fordon” för en full översikt eller välj ett fordon för en fordonsrapport.",
       "no": "Åpne Rapporter, velg måned og kjøretøyfilter, og eksporter PDF. Bruk “alle kjøretøy” for full oversikt eller velg ett kjøretøy for en egen rapport.",
-      "da": "Åbn Rapporter, vælg måned og køretøjsfilter, og eksportér PDF’en. Brug “alle køretøjer” for et samlet overblik eller vælg ét køretøj for en separat rapport."
+      "da": "Åbn Rapporter, vælg måned og køretøjsfilter, og eksportér PDF’en. Brug “alle køretøjer” for et samlet overblik eller vælg ét køretøj for en separat rapport.",
+      "de": "Öffne Berichte, wähle Monat und Fahrzeugfilter und exportiere das PDF. Verwende „alle Fahrzeuge“ für die Gesamtübersicht oder wähle ein einzelnes Fahrzeug.",
+      "de-CH": "Öffne Berichte, wähle Monat und Fahrzeugfilter und exportiere das PDF. Verwende „alle Fahrzeuge“ für die Gesamtübersicht oder wähle ein einzelnes Fahrzeug.",
+      "pl": "Otwórz Raporty, wybierz miesiąc i filtr pojazdu, a następnie wyeksportuj PDF. Wybierz wszystkie pojazdy dla pełnego zestawienia albo jeden pojazd."
     }
   },
   {
@@ -354,7 +363,10 @@
       "pt": "Qual é a diferença entre relatório privado e profissional?",
       "sv": "Vad är skillnaden mellan privat och professionell rapport?",
       "no": "Hva er forskjellen på privat og profesjonell rapport?",
-      "da": "Hvad er forskellen på en privat og professionel rapport?"
+      "da": "Hvad er forskellen på en privat og professionel rapport?",
+      "de": "Was ist der Unterschied zwischen einem privaten und einem beruflichen Bericht?",
+      "de-CH": "Was ist der Unterschied zwischen einem privaten und einem beruflichen Bericht?",
+      "pl": "Jaka jest różnica między raportem prywatnym a służbowym?"
     },
     "answer": {
       "en": "There is one report system. You decide what appears by using filters such as period, vehicle and purpose. For example, select one vehicle or professional trips only if you do not want private rides in the exported PDF.",
@@ -365,7 +377,10 @@
       "pt": "Existe um único sistema de relatórios. Decide o conteúdo usando filtros como período, veículo e finalidade. Por exemplo, escolha um veículo ou apenas viagens profissionais para excluir viagens privadas.",
       "sv": "Det finns ett rapportsystem. Du styr innehållet med filter som period, fordon och syfte. Välj till exempel ett fordon eller bara professionella resor om privata resor inte ska med i PDF:en.",
       "no": "Det finnes ett rapportsystem. Du bestemmer innholdet med filtre som periode, kjøretøy og formål. Velg for eksempel ett kjøretøy eller kun profesjonelle turer hvis private turer ikke skal med i PDF-en.",
-      "da": "Der er ét rapportsystem. Du bestemmer indholdet med filtre som periode, køretøj og formål. Vælg fx ét køretøj eller kun professionelle ture, hvis private ture ikke skal med i PDF’en."
+      "da": "Der er ét rapportsystem. Du bestemmer indholdet med filtre som periode, køretøj og formål. Vælg fx ét køretøj eller kun professionelle ture, hvis private ture ikke skal med i PDF’en.",
+      "de": "Es gibt ein Berichtssystem. Über Filter wie Zeitraum, Fahrzeug und Zweck bestimmst du den Inhalt. Wähle beispielsweise nur berufliche Fahrten, wenn private Fahrten nicht im PDF erscheinen sollen.",
+      "de-CH": "Es gibt ein Berichtssystem. Über Filter wie Zeitraum, Fahrzeug und Zweck bestimmst du den Inhalt. Wähle beispielsweise nur berufliche Fahrten, wenn private Fahrten nicht im PDF erscheinen sollen.",
+      "pl": "Istnieje jeden system raportów. Zawartość wybierasz filtrami okresu, pojazdu i celu. Możesz na przykład uwzględnić tylko przejazdy służbowe."
     }
   },
   {
@@ -380,7 +395,10 @@
       "pt": "Posso deitar fora o recibo original?",
       "sv": "Kan jag slänga originalkvittot?",
       "no": "Kan jeg kaste originalkvitteringen?",
-      "da": "Kan jeg smide den originale kvittering ud?"
+      "da": "Kan jeg smide den originale kvittering ud?",
+      "de": "Kann ich den Originalbeleg entsorgen?",
+      "de-CH": "Kann ich den Originalbeleg entsorgen?",
+      "pl": "Czy mogę wyrzucić oryginalny paragon?"
     },
     "answer": {
       "en": "Do not rely on MoBud as a legal archive. Keep legally required originals according to your local rules. MoBud copies help you organise reports, but they do not automatically replace original documents.",
@@ -391,7 +409,10 @@
       "pt": "Não use o MoBud como arquivo legal. Guarde os originais exigidos pelas regras locais. As cópias no MoBud ajudam nos relatórios, mas não substituem automaticamente documentos originais.",
       "sv": "Använd inte MoBud som juridiskt arkiv. Spara original enligt lokala regler. MoBud-kopior hjälper dig med rapporter men ersätter inte automatiskt originalhandlingar.",
       "no": "Ikke bruk MoBud som juridisk arkiv. Oppbevar påkrevde originaler etter lokale regler. MoBud-kopier hjelper med rapporter, men erstatter ikke automatisk originaldokumenter.",
-      "da": "Brug ikke MoBud som juridisk arkiv. Gem nødvendige originaler efter lokale regler. MoBud-kopier hjælper med rapporter, men erstatter ikke automatisk originale dokumenter."
+      "da": "Brug ikke MoBud som juridisk arkiv. Gem nødvendige originaler efter lokale regler. MoBud-kopier hjælper med rapporter, men erstatter ikke automatisk originale dokumenter.",
+      "de": "Verlasse dich nicht auf MoBud als rechtliches Archiv. Bewahre gesetzlich erforderliche Originale nach den örtlichen Regeln auf. MoBud-Kopien helfen bei der Organisation, ersetzen Originale aber nicht automatisch.",
+      "de-CH": "Verlasse dich nicht auf MoBud als rechtliches Archiv. Bewahre gesetzlich erforderliche Originale nach den örtlichen Regeln auf. MoBud-Kopien helfen bei der Organisation, ersetzen Originale aber nicht automatisch.",
+      "pl": "Nie traktuj MoBud jako archiwum prawnego. Zachowuj wymagane oryginały zgodnie z lokalnymi przepisami. Kopie w MoBud pomagają organizować dane, ale nie zawsze zastępują oryginały."
     }
   },
   {
@@ -406,7 +427,10 @@
       "pt": "Como removo um veículo antigo?",
       "sv": "Hur tar jag bort ett gammalt fordon?",
       "no": "Hvordan fjerner jeg et gammelt kjøretøy?",
-      "da": "Hvordan fjerner jeg et gammelt køretøj?"
+      "da": "Hvordan fjerner jeg et gammelt køretøj?",
+      "de": "Wie entferne ich ein altes Fahrzeug?",
+      "de-CH": "Wie entferne ich ein altes Fahrzeug?",
+      "pl": "Jak usunąć stary pojazd?"
     },
     "answer": {
       "en": "First make the vehicle inactive. It disappears from active lists, but historical trips and costs remain linked. Permanent deletion is only available from inactive vehicles and asks you to consider a backup first.",
@@ -417,7 +441,10 @@
       "pt": "Primeiro torne o veículo inativo. Desaparece das listas ativas, mas viagens e custos históricos continuam ligados. A eliminação permanente só está disponível nos veículos inativos e lembra primeiro o backup.",
       "sv": "Gör först fordonet inaktivt. Det försvinner från aktiva listor, men historiska resor och kostnader behåller kopplingen. Permanent radering finns bara under inaktiva fordon och påminner först om backup.",
       "no": "Gjør først kjøretøyet inaktivt. Det forsvinner fra aktive lister, men historiske turer og kostnader forblir koblet. Permanent sletting finnes bare under inaktive kjøretøy og minner først om backup.",
-      "da": "Gør først køretøjet inaktivt. Det forsvinder fra aktive lister, men historiske ture og omkostninger forbliver knyttet. Permanent sletning findes kun under inaktive køretøjer og minder først om backup."
+      "da": "Gør først køretøjet inaktivt. Det forsvinder fra aktive lister, men historiske ture og omkostninger forbliver knyttet. Permanent sletning findes kun under inaktive køretøjer og minder først om backup.",
+      "de": "Setze das Fahrzeug zuerst auf inaktiv. Es verschwindet aus aktiven Listen, historische Fahrten und Kosten bleiben jedoch verknüpft. Dauerhaftes Löschen ist nur bei inaktiven Fahrzeugen möglich und erinnert vorher an eine Sicherung.",
+      "de-CH": "Setze das Fahrzeug zuerst auf inaktiv. Es verschwindet aus aktiven Listen, historische Fahrten und Kosten bleiben jedoch verknüpft. Dauerhaftes Löschen ist nur bei inaktiven Fahrzeugen möglich und erinnert vorher an eine Sicherung.",
+      "pl": "Najpierw oznacz pojazd jako nieaktywny. Zniknie z aktywnych list, ale historyczne przejazdy i koszty pozostaną powiązane. Trwałe usunięcie jest dostępne tylko dla pojazdów nieaktywnych i przypomina o kopii."
     }
   },
   {
@@ -432,7 +459,10 @@
       "pt": "Posso gerir uma frota com o MoBud?",
       "sv": "Kan jag hantera en fordonsflotta med MoBud?",
       "no": "Kan jeg administrere en bilpark med MoBud?",
-      "da": "Kan jeg administrere en flåde med MoBud?"
+      "da": "Kan jeg administrere en flåde med MoBud?",
+      "de": "Kann ich mit MoBud eine Flotte verwalten?",
+      "de-CH": "Kann ich mit MoBud eine Flotte verwalten?",
+      "pl": "Czy mogę zarządzać flotą w MoBud?"
     },
     "answer": {
       "en": "MoBud is currently a personal mobility administration app. We may later explore a separate version where driver reports can be imported and reviewed, but today we assume professional fleet software for fleet management. If this is valuable to you, vote on <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>.",
@@ -443,7 +473,10 @@
       "pt": "O MoBud é atualmente uma aplicação pessoal de administração de mobilidade. No futuro poderemos explorar uma versão separada para importar e rever relatórios de condutores, mas hoje assumimos software profissional para gestão de frotas. Se isto for útil, vote em <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>.",
       "sv": "MoBud är för närvarande en personlig app för mobilitetsadministration. Senare kan vi undersöka en separat version där förarrapporter kan importeras och följas upp, men i dag utgår vi från professionell fleet-programvara. Om detta är viktigt för dig, rösta på <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>.",
       "no": "MoBud er foreløpig en personlig app for mobilitetsadministrasjon. Senere kan vi utforske en separat versjon der sjåførrapporter kan importeres og følges opp, men i dag antar vi profesjonell flåteprogramvare. Hvis dette er nyttig for deg, stem på <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>.",
-      "da": "MoBud er i dag en personlig app til mobilitetsadministration. Senere kan vi undersøge en separat version, hvor driverrapporter kan importeres og følges op, men i dag antager vi professionel flådesoftware. Hvis det er værdifuldt for dig, så stem på <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>."
+      "da": "MoBud er i dag en personlig app til mobilitetsadministration. Senere kan vi undersøge en separat version, hvor driverrapporter kan importeres og følges op, men i dag antager vi professionel flådesoftware. Hvis det er værdifuldt for dig, så stem på <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>.",
+      "de": "MoBud ist derzeit eine persönliche Mobilitätsverwaltung. Eine separate Lösung für importierbare Fahrerberichte könnte später untersucht werden. Stimme bei Interesse über <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub-Issue #3</a> ab.",
+      "de-CH": "MoBud ist derzeit eine persönliche Mobilitätsverwaltung. Eine separate Lösung für importierbare Fahrerberichte könnte später untersucht werden. Stimme bei Interesse über <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub-Issue #3</a> ab.",
+      "pl": "MoBud jest obecnie osobistą aplikacją administracji mobilnością. W przyszłości może powstać oddzielna wersja do importowania raportów kierowców. Zagłosuj na <a href=\"https://github.com/studiosampersand/MoBud/issues/3\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub issue #3</a>."
     }
   },
   {
@@ -458,7 +491,10 @@
       "pt": "Que documentos do veículo posso acompanhar?",
       "sv": "Vilka fordonsdokument kan jag hålla koll på?",
       "no": "Hvilke kjøretøydokumenter kan jeg følge opp?",
-      "da": "Hvilke køretøjsdokumenter kan jeg holde styr på?"
+      "da": "Hvilke køretøjsdokumenter kan jeg holde styr på?",
+      "de": "Welche Fahrzeugdokumente kann ich erfassen?",
+      "de-CH": "Welche Fahrzeugdokumente kann ich erfassen?",
+      "pl": "Jakie dokumenty pojazdu mogę śledzić?"
     },
     "answer": {
       "en": "MoBud can help you keep references for insurance, inspection, lease contracts, purchase invoices and maintenance history. Keep legal originals outside MoBud according to your local rules.",
@@ -469,7 +505,10 @@
       "pt": "O MoBud pode ajudar a manter referências de seguro, inspeção, contratos de leasing, faturas de compra e histórico de manutenção. Guarde os originais legais fora do MoBud segundo as regras locais.",
       "sv": "MoBud kan hjälpa dig att hålla ordning på försäkring, besiktning, leasingavtal, inköpsfakturor och underhållshistorik. Spara juridiska original utanför MoBud enligt lokala regler.",
       "no": "MoBud kan hjelpe deg å holde oversikt over forsikring, kontroll, leasingavtaler, kjøpsfakturaer og vedlikeholdshistorikk. Oppbevar juridiske originaler utenfor MoBud etter lokale regler.",
-      "da": "MoBud kan hjælpe dig med at holde styr på forsikring, syn, leasingaftaler, købsfakturaer og vedligeholdshistorik. Gem juridiske originaler uden for MoBud efter lokale regler."
+      "da": "MoBud kan hjælpe dig med at holde styr på forsikring, syn, leasingaftaler, købsfakturaer og vedligeholdshistorik. Gem juridiske originaler uden for MoBud efter lokale regler.",
+      "de": "MoBud kann Referenzen zu Versicherung, Prüfung, Leasingverträgen, Kaufrechnungen und Wartungsverlauf verwalten. Bewahre gesetzliche Originale außerhalb von MoBud auf.",
+      "de-CH": "MoBud kann Referenzen zu Versicherung, Prüfung, Leasingverträgen, Kaufrechnungen und Wartungsverlauf verwalten. Bewahre gesetzliche Originale außerhalb von MoBud auf.",
+      "pl": "MoBud pomaga przechowywać informacje o ubezpieczeniu, przeglądzie, leasingu, fakturze zakupu i historii serwisowej. Oryginały wymagane prawem przechowuj poza MoBud."
     }
   },
   {
@@ -484,7 +523,10 @@
       "pt": "Como registo rapidamente uma deslocação casa-trabalho?",
       "sv": "Hur loggar jag snabbt en pendlingsresa?",
       "no": "Hvordan loggfører jeg raskt en pendletur?",
-      "da": "Hvordan registrerer jeg hurtigt en pendlingstur?"
+      "da": "Hvordan registrerer jeg hurtigt en pendlingstur?",
+      "de": "Wie erfasse ich einen Arbeitsweg schnell?",
+      "de-CH": "Wie erfasse ich einen Arbeitsweg schnell?",
+      "pl": "Jak szybko zapisać dojazd do pracy?"
     },
     "answer": {
       "en": "On the dashboard, choose Home → Work or Work → Home and tap the vehicle. MoBud adds the ride and then lets you adjust it if needed.",
@@ -495,7 +537,10 @@
       "pt": "No painel, escolha Casa → Trabalho ou Trabalho → Casa e toque no veículo. O MoBud adiciona a viagem e permite ajustar depois se necessário.",
       "sv": "På dashboarden väljer du Hem → Arbete eller Arbete → Hem och trycker på fordonet. MoBud lägger till resan och låter dig justera den vid behov.",
       "no": "På dashbordet velger du Hjem → Jobb eller Jobb → Hjem og trykker på kjøretøyet. MoBud legger til turen og lar deg justere den ved behov.",
-      "da": "På dashboardet vælger du Hjem → Arbejde eller Arbejde → Hjem og trykker på køretøjet. MoBud tilføjer turen og lader dig justere den bagefter."
+      "da": "På dashboardet vælger du Hjem → Arbejde eller Arbejde → Hjem og trykker på køretøjet. MoBud tilføjer turen og lader dig justere den bagefter.",
+      "de": "Wähle auf dem Dashboard Zuhause → Arbeit oder Arbeit → Zuhause, wähle das Fahrzeug und drücke Registrieren. Danach kannst du die Fahrt bei Bedarf anpassen.",
+      "de-CH": "Wähle auf dem Dashboard Zuhause → Arbeit oder Arbeit → Zuhause, wähle das Fahrzeug und drücke Registrieren. Danach kannst du die Fahrt bei Bedarf anpassen.",
+      "pl": "Na pulpicie wybierz Dom → Praca lub Praca → Dom, wybierz pojazd i naciśnij Zarejestruj. Następnie możesz poprawić szczegóły."
     }
   },
   {
@@ -510,7 +555,10 @@
       "pt": "Como adiciono um recibo, bilhete ou fatura?",
       "sv": "Hur lägger jag till ett kvitto, biljett eller faktura?",
       "no": "Hvordan legger jeg til kvittering, billett eller faktura?",
-      "da": "Hvordan tilføjer jeg kvittering, billet eller faktura?"
+      "da": "Hvordan tilføjer jeg kvittering, billet eller faktura?",
+      "de": "Wie füge ich einen Beleg, ein Ticket oder eine Rechnung hinzu?",
+      "de-CH": "Wie füge ich einen Beleg, ein Ticket oder eine Rechnung hinzu?",
+      "pl": "Jak dodać paragon, bilet lub fakturę?"
     },
     "answer": {
       "en": "Open Cost / receipt, choose the vehicle and category, add the amount and attach a photo or file. Very large files can fill browser storage, so keep originals separately.",
@@ -521,7 +569,10 @@
       "pt": "Abra Custo / recibo, escolha veículo e categoria, adicione o valor e anexe uma foto ou ficheiro. Ficheiros grandes podem ocupar o armazenamento do navegador, por isso guarde os originais separadamente.",
       "sv": "Öppna Kostnad / kvitto, välj fordon och kategori, ange belopp och bifoga bild eller fil. Stora filer kan fylla webbläsarens lagring, så spara original separat.",
       "no": "Åpne Kostnad / kvittering, velg kjøretøy og kategori, legg inn beløp og legg ved bilde eller fil. Store filer kan fylle nettleserlagringen, så oppbevar originaler separat.",
-      "da": "Åbn Omkostning / kvittering, vælg køretøj og kategori, angiv beløb og vedhæft foto eller fil. Store filer kan fylde browserens lager, så gem originaler separat."
+      "da": "Åbn Omkostning / kvittering, vælg køretøj og kategori, angiv beløb og vedhæft foto eller fil. Store filer kan fylde browserens lager, så gem originaler separat.",
+      "de": "Öffne Kosten / Beleg, wähle Fahrzeug und Kategorie, gib den Betrag ein und füge ein Foto oder eine Datei hinzu. Große Dateien können den Browserspeicher füllen; bewahre Originale separat auf.",
+      "de-CH": "Öffne Kosten / Beleg, wähle Fahrzeug und Kategorie, gib den Betrag ein und füge ein Foto oder eine Datei hinzu. Große Dateien können den Browserspeicher füllen; bewahre Originale separat auf.",
+      "pl": "Otwórz Koszt / paragon, wybierz pojazd i kategorię, wpisz kwotę i dodaj zdjęcie lub plik. Duże pliki mogą zapełnić pamięć przeglądarki, dlatego zachowuj oryginały osobno."
     }
   },
   {
@@ -536,7 +587,10 @@
       "pt": "Não encontrou resposta?",
       "sv": "Hittar du inget svar?",
       "no": "Fant du ikke svar?",
-      "da": "Fandt du ikke et svar?"
+      "da": "Fandt du ikke et svar?",
+      "de": "Keine Antwort gefunden?",
+      "de-CH": "Keine Antwort gefunden?",
+      "pl": "Nie znalazłeś odpowiedzi?"
     },
     "answer": {
       "en": "Use the buttons at the top of this FAQ to report a bug or request a feature. Please avoid sharing private addresses, receipts or vehicle identifiers in public GitHub issues.",
@@ -547,7 +601,10 @@
       "pt": "Use os botões no topo desta FAQ para reportar um erro ou pedir uma funcionalidade. Evite partilhar moradas privadas, recibos ou identificadores de veículos em issues públicas do GitHub.",
       "sv": "Använd knapparna högst upp i denna FAQ för att rapportera en bugg eller önska en funktion. Dela inte privata adresser, kvitton eller fordonsidentifierare i publika GitHub-ärenden.",
       "no": "Bruk knappene øverst i denne FAQ-en for å melde en feil eller be om en funksjon. Ikke del private adresser, kvitteringer eller kjøretøyidentifikatorer i offentlige GitHub-issues.",
-      "da": "Brug knapperne øverst i denne FAQ til at rapportere en fejl eller ønske en funktion. Del ikke private adresser, kvitteringer eller køretøjsidentifikatorer i offentlige GitHub-issues."
+      "da": "Brug knapperne øverst i denne FAQ til at rapportere en fejl eller ønske en funktion. Del ikke private adresser, kvitteringer eller køretøjsidentifikatorer i offentlige GitHub-issues.",
+      "de": "Nutze die Schaltflächen oben in dieser FAQ, um einen Fehler zu melden oder eine Funktion vorzuschlagen. Teile in öffentlichen GitHub-Issues keine privaten Adressen, Belege oder Fahrzeugkennungen.",
+      "de-CH": "Nutze die Schaltflächen oben in dieser FAQ, um einen Fehler zu melden oder eine Funktion vorzuschlagen. Teile in öffentlichen GitHub-Issues keine privaten Adressen, Belege oder Fahrzeugkennungen.",
+      "pl": "Użyj przycisków u góry FAQ, aby zgłosić błąd lub poprosić o funkcję. Nie publikuj prywatnych adresów, paragonów, identyfikatorów pojazdu ani dokumentów."
     }
   },
   {
@@ -562,7 +619,10 @@
       "pt": "Por que o MoBud pede acesso ao Google Drive?",
       "sv": "Varför ber MoBud om åtkomst till Google Drive?",
       "no": "Hvorfor ber MoBud om tilgang til Google Drive?",
-      "da": "Hvorfor beder MoBud om adgang til Google Drive?"
+      "da": "Hvorfor beder MoBud om adgang til Google Drive?",
+      "de": "Warum fragt MoBud nach Google-Drive-Zugriff?",
+      "de-CH": "Warum fragt MoBud nach Google-Drive-Zugriff?",
+      "pl": "Dlaczego MoBud prosi o dostęp do Google Drive?"
     },
     "answer": {
       "en": "Only if you choose Google Drive backup. MoBud uses Drive to store its own backup file for your app data. It should not need access to all your Drive files for normal backup use.",
@@ -573,7 +633,10 @@
       "pt": "Apenas se escolher backup no Google Drive. O MoBud usa o Drive para guardar o seu próprio ficheiro de backup. Para uso normal não deve precisar de acesso a todos os ficheiros do Drive.",
       "sv": "Endast om du väljer Google Drive-backup. MoBud använder Drive för att spara sin egen backupfil. Normal backup ska inte kräva åtkomst till alla dina Drive-filer.",
       "no": "Bare hvis du velger Google Drive-backup. MoBud bruker Drive til å lagre sin egen backupfil. Normal backup skal ikke kreve tilgang til alle Drive-filene dine.",
-      "da": "Kun hvis du vælger Google Drive-backup. MoBud bruger Drive til at gemme sin egen backupfil. Normal backup bør ikke kræve adgang til alle dine Drive-filer."
+      "da": "Kun hvis du vælger Google Drive-backup. MoBud bruger Drive til at gemme sin egen backupfil. Normal backup bør ikke kræve adgang til alle dine Drive-filer.",
+      "de": "Nur wenn du die Google-Drive-Sicherung wählst. MoBud verwendet Drive, um seine eigene Sicherungsdatei für deine App-Daten zu speichern. Für normale Sicherungen ist kein Zugriff auf alle Drive-Dateien nötig.",
+      "de-CH": "Nur wenn du die Google-Drive-Sicherung wählst. MoBud verwendet Drive, um seine eigene Sicherungsdatei für deine App-Daten zu speichern. Für normale Sicherungen ist kein Zugriff auf alle Drive-Dateien nötig.",
+      "pl": "Tylko gdy wybierzesz kopię Google Drive. MoBud używa Drive do przechowywania własnego pliku kopii danych aplikacji. Normalna kopia nie wymaga dostępu do wszystkich plików Drive."
     }
   },
   {
@@ -588,7 +651,10 @@
       "pt": "O MoBud ou a Studio Sampersand podem ver os meus ficheiros Google Drive?",
       "sv": "Kan MoBud eller Studio Sampersand se mina Google Drive-filer?",
       "no": "Kan MoBud eller Studio Sampersand se Google Drive-filene mine?",
-      "da": "Kan MoBud eller Studio Sampersand se mine Google Drive-filer?"
+      "da": "Kan MoBud eller Studio Sampersand se mine Google Drive-filer?",
+      "de": "Können MoBud oder Studio Sampersand meine Google-Drive-Dateien sehen?",
+      "de-CH": "Können MoBud oder Studio Sampersand meine Google-Drive-Dateien sehen?",
+      "pl": "Czy MoBud lub Studio Sampersand widzą moje pliki Google Drive?"
     },
     "answer": {
       "en": "No central MoBud operator receives your Drive contents. Drive backup is between your browser session and your Google account. Use local export if you do not want to connect Google Drive.",
@@ -599,7 +665,10 @@
       "pt": "Nenhum operador central do MoBud recebe o conteúdo do seu Drive. O backup Drive acontece entre o navegador e a sua conta Google. Use exportação local se não quiser ligar Drive.",
       "sv": "Ingen central MoBud-operatör får ditt Drive-innehåll. Drive-backup sker mellan din webbläsarsession och ditt Google-konto. Använd lokal export om du inte vill ansluta Drive.",
       "no": "Ingen sentral MoBud-operatør mottar Drive-innholdet ditt. Drive-backup skjer mellom nettleseren og Google-kontoen din. Bruk lokal eksport hvis du ikke vil koble til Drive.",
-      "da": "Ingen central MoBud-operatør modtager dit Drive-indhold. Drive-backup sker mellem din browser og din Google-konto. Brug lokal eksport, hvis du ikke vil forbinde Drive."
+      "da": "Ingen central MoBud-operatør modtager dit Drive-indhold. Drive-backup sker mellem din browser og din Google-konto. Brug lokal eksport, hvis du ikke vil forbinde Drive.",
+      "de": "Nein. Ein zentraler MoBud-Betreiber erhält deine Drive-Inhalte nicht. Die Sicherung erfolgt zwischen deiner Browsersitzung und deinem Google-Konto. Nutze den lokalen Export, wenn du Drive nicht verbinden möchtest.",
+      "de-CH": "Nein. Ein zentraler MoBud-Betreiber erhält deine Drive-Inhalte nicht. Die Sicherung erfolgt zwischen deiner Browsersitzung und deinem Google-Konto. Nutze den lokalen Export, wenn du Drive nicht verbinden möchtest.",
+      "pl": "Nie. Centralny operator MoBud nie otrzymuje zawartości Drive. Kopia odbywa się między sesją przeglądarki a Twoim kontem Google. Użyj eksportu lokalnego, jeśli nie chcesz łączyć Drive."
     }
   },
   {
@@ -614,7 +683,10 @@
       "pt": "O backup no Google Drive é totalmente isento de riscos?",
       "sv": "Är Google Drive-backup helt riskfri?",
       "no": "Er Google Drive-backup helt risikofri?",
-      "da": "Er Google Drive-backup helt risikofri?"
+      "da": "Er Google Drive-backup helt risikofri?",
+      "de": "Ist die Google-Drive-Sicherung völlig risikofrei?",
+      "de-CH": "Ist die Google-Drive-Sicherung völlig risikofrei?",
+      "pl": "Czy kopia zapasowa Google Drive jest całkowicie bezpieczna?"
     },
     "answer": {
       "en": "No backup method is completely risk-free. Keep a local JSON backup before major updates, before clearing browser data and before permanently deleting vehicles.",
@@ -625,7 +697,10 @@
       "pt": "Nenhum método de backup é totalmente isento de riscos. Guarde um backup JSON local antes de grandes atualizações, antes de limpar dados do navegador e antes de eliminar veículos definitivamente.",
       "sv": "Ingen backupmetod är helt riskfri. Spara en lokal JSON-backup före större uppdateringar, innan du rensar webbläsardata och innan du raderar fordon permanent.",
       "no": "Ingen backupmetode er helt risikofri. Lagre en lokal JSON-backup før store oppdateringer, før du sletter nettleserdata og før du sletter kjøretøy permanent.",
-      "da": "Ingen backupmetode er helt risikofri. Gem en lokal JSON-backup før større opdateringer, før du rydder browserdata og før permanent sletning af køretøjer."
+      "da": "Ingen backupmetode er helt risikofri. Gem en lokal JSON-backup før større opdateringer, før du rydder browserdata og før permanent sletning af køretøjer.",
+      "de": "Nein. Keine Sicherungsmethode ist völlig risikofrei. Bewahre vor größeren Updates, vor dem Löschen von Browserdaten und vor dem endgültigen Löschen von Fahrzeugen eine lokale JSON-Sicherung auf.",
+      "de-CH": "Nein. Keine Sicherungsmethode ist völlig risikofrei. Bewahre vor größeren Updates, vor dem Löschen von Browserdaten und vor dem endgültigen Löschen von Fahrzeugen eine lokale JSON-Sicherung auf.",
+      "pl": "Nie. Żadna metoda kopii nie jest całkowicie pozbawiona ryzyka. Zachowaj lokalny plik JSON przed dużymi aktualizacjami, czyszczeniem danych przeglądarki i trwałym usuwaniem pojazdów."
     }
   },
   {
@@ -640,7 +715,10 @@
       "pt": "Posso desligar o Google Drive?",
       "sv": "Kan jag koppla bort Google Drive?",
       "no": "Kan jeg koble fra Google Drive?",
-      "da": "Kan jeg afbryde Google Drive?"
+      "da": "Kan jeg afbryde Google Drive?",
+      "de": "Kann ich Google Drive trennen?",
+      "de-CH": "Kann ich Google Drive trennen?",
+      "pl": "Czy mogę odłączyć Google Drive?"
     },
     "answer": {
       "en": "Yes. You can continue using MoBud locally and use local JSON backups instead. You can also manage app permissions in your Google account.",
@@ -651,7 +729,10 @@
       "pt": "Sim. Pode continuar a usar o MoBud localmente e usar backups JSON locais. Também pode gerir permissões de apps na sua conta Google.",
       "sv": "Ja. Du kan fortsätta använda MoBud lokalt och använda lokala JSON-backuper. Du kan också hantera appbehörigheter i ditt Google-konto.",
       "no": "Ja. Du kan fortsette å bruke MoBud lokalt og bruke lokale JSON-backuper. Du kan også administrere apptillatelser i Google-kontoen din.",
-      "da": "Ja. Du kan fortsætte med at bruge MoBud lokalt og bruge lokale JSON-backups. Du kan også administrere apptilladelser i din Google-konto."
+      "da": "Ja. Du kan fortsætte med at bruge MoBud lokalt og bruge lokale JSON-backups. Du kan også administrere apptilladelser i din Google-konto.",
+      "de": "Ja. Du kannst MoBud lokal weiterverwenden und stattdessen lokale JSON-Sicherungen nutzen. App-Berechtigungen kannst du auch in deinem Google-Konto verwalten.",
+      "de-CH": "Ja. Du kannst MoBud lokal weiterverwenden und stattdessen lokale JSON-Sicherungen nutzen. App-Berechtigungen kannst du auch in deinem Google-Konto verwalten.",
+      "pl": "Tak. Możesz nadal używać MoBud lokalnie i korzystać z kopii JSON. Uprawnieniami aplikacji możesz zarządzać również na koncie Google."
     }
   },
   {
@@ -666,7 +747,10 @@
       "pt": "Quão seguro é o armazenamento local do navegador?",
       "sv": "Hur säker är lokal webbläsarlagring?",
       "no": "Hvor sikker er lokal nettleserlagring?",
-      "da": "Hvor sikker er lokal browserlagring?"
+      "da": "Hvor sikker er lokal browserlagring?",
+      "de": "Wie sicher ist der lokale Browserspeicher?",
+      "de-CH": "Wie sicher ist der lokale Browserspeicher?",
+      "pl": "Jak bezpieczna jest lokalna pamięć przeglądarki?"
     },
     "answer": {
       "en": "Local storage keeps data on your device, but it is not a legal archive or enterprise vault. Device security, browser data clearing and backups remain your responsibility.",
@@ -677,7 +761,10 @@
       "pt": "O armazenamento local mantém dados no dispositivo, mas não é arquivo legal nem cofre empresarial. Segurança do dispositivo, limpeza de dados do navegador e backups continuam a ser responsabilidade sua.",
       "sv": "Lokal lagring håller data på din enhet men är inte ett juridiskt arkiv eller företagsvalv. Enhetssäkerhet, rensning av webbläsardata och backup är ditt ansvar.",
       "no": "Lokal lagring holder data på enheten din, men er ikke et juridisk arkiv eller enterprise-hvelv. Enhetssikkerhet, sletting av nettleserdata og backup er ditt ansvar.",
-      "da": "Lokal lagring holder data på din enhed, men er ikke et juridisk arkiv eller enterprise-boks. Enhedssikkerhed, rydning af browserdata og backup er dit ansvar."
+      "da": "Lokal lagring holder data på din enhed, men er ikke et juridisk arkiv eller enterprise-boks. Enhedssikkerhed, rydning af browserdata og backup er dit ansvar.",
+      "de": "Lokaler Speicher hält Daten auf deinem Gerät, ist aber kein rechtliches Archiv oder Unternehmens-Tresor. Gerätesicherheit, das Löschen von Browserdaten und Sicherungen bleiben deine Verantwortung.",
+      "de-CH": "Lokaler Speicher hält Daten auf deinem Gerät, ist aber kein rechtliches Archiv oder Unternehmens-Tresor. Gerätesicherheit, das Löschen von Browserdaten und Sicherungen bleiben deine Verantwortung.",
+      "pl": "Lokalna pamięć przechowuje dane na urządzeniu, ale nie jest archiwum prawnym ani sejfem firmowym. Bezpieczeństwo urządzenia, czyszczenie danych i kopie pozostają Twoją odpowiedzialnością."
     }
   },
   {
@@ -692,7 +779,10 @@
       "pt": "O que é enviado quando reporto um erro?",
       "sv": "Vad skickas när jag rapporterar en bugg?",
       "no": "Hva sendes når jeg melder en feil?",
-      "da": "Hvad sendes når jeg rapporterer en fejl?"
+      "da": "Hvad sendes når jeg rapporterer en fejl?",
+      "de": "Was wird beim Melden eines Fehlers gesendet?",
+      "de-CH": "Was wird beim Melden eines Fehlers gesendet?",
+      "pl": "Co jest wysyłane podczas zgłaszania błędu?"
     },
     "answer": {
       "en": "Only what you type into the bug report or feature request. Do not include private addresses, receipts, vehicle identifiers or personal documents in public reports.",
@@ -703,7 +793,10 @@
       "pt": "Apenas o que escreve no relatório ou pedido. Não inclua moradas privadas, recibos, identificadores de veículos ou documentos pessoais em relatórios públicos.",
       "sv": "Endast det du skriver i felrapporten eller funktionsförslaget. Ta inte med privata adresser, kvitton, fordonsidentifierare eller personliga dokument i publika rapporter.",
       "no": "Bare det du skriver i feilrapporten eller funksjonsønsket. Ikke inkluder private adresser, kvitteringer, kjøretøyidentifikatorer eller personlige dokumenter i offentlige rapporter.",
-      "da": "Kun det du skriver i fejlrapporten eller funktionsønsket. Medtag ikke private adresser, kvitteringer, køretøjsidentifikation eller personlige dokumenter i offentlige rapporter."
+      "da": "Kun det du skriver i fejlrapporten eller funktionsønsket. Medtag ikke private adresser, kvitteringer, køretøjsidentifikation eller personlige dokumenter i offentlige rapporter.",
+      "de": "Nur das, was du selbst in den Fehlerbericht oder Funktionswunsch eingibst. Füge öffentlichen Meldungen keine privaten Adressen, Belege, Fahrzeugkennungen oder persönlichen Dokumente bei.",
+      "de-CH": "Nur das, was du selbst in den Fehlerbericht oder Funktionswunsch eingibst. Füge öffentlichen Meldungen keine privaten Adressen, Belege, Fahrzeugkennungen oder persönlichen Dokumente bei.",
+      "pl": "Tylko treść wpisana przez Ciebie w zgłoszeniu błędu lub propozycji funkcji. Nie dodawaj do publicznych zgłoszeń prywatnych adresów, paragonów, identyfikatorów ani dokumentów."
     }
   },
   {
@@ -718,7 +811,10 @@
       "pt": "Posso usar o MoBud para impostos ou empregador?",
       "sv": "Kan jag använda MoBud för skatt eller arbetsgivare?",
       "no": "Kan jeg bruke MoBud til skatt eller arbeidsgiver?",
-      "da": "Kan jeg bruge MoBud til skat eller arbejdsgiver?"
+      "da": "Kan jeg bruge MoBud til skat eller arbejdsgiver?",
+      "de": "Kann ich MoBud für Steuer- oder Arbeitgeberverwaltung verwenden?",
+      "de-CH": "Kann ich MoBud für Steuer- oder Arbeitgeberverwaltung verwenden?",
+      "pl": "Czy mogę używać MoBud do rozliczeń podatkowych lub pracowniczych?"
     },
     "answer": {
       "en": "MoBud helps organise your data, but local rules differ. Check requirements with your accountant, employer or local authority and keep legally required original documents.",
@@ -729,7 +825,10 @@
       "pt": "O MoBud ajuda a organizar dados, mas as regras locais variam. Confirme com contabilista, empregador ou autoridade local e guarde os originais exigidos.",
       "sv": "MoBud hjälper till att organisera data, men lokala regler skiljer sig. Kontrollera med revisor, arbetsgivare eller myndighet och spara krävda original.",
       "no": "MoBud hjelper med å organisere data, men lokale regler varierer. Sjekk med regnskapsfører, arbeidsgiver eller myndighet og oppbevar påkrevde originaler.",
-      "da": "MoBud hjælper med at organisere data, men lokale regler varierer. Tjek med revisor, arbejdsgiver eller myndighed og gem nødvendige originaler."
+      "da": "MoBud hjælper med at organisere data, men lokale regler varierer. Tjek med revisor, arbejdsgiver eller myndighed og gem nødvendige originaler.",
+      "de": "MoBud hilft beim Organisieren, örtliche Regeln unterscheiden sich jedoch. Prüfe Anforderungen mit Buchhaltung, Arbeitgeber oder Behörde und bewahre gesetzlich vorgeschriebene Originale auf.",
+      "de-CH": "MoBud hilft beim Organisieren, örtliche Regeln unterscheiden sich jedoch. Prüfe Anforderungen mit Buchhaltung, Arbeitgeber oder Behörde und bewahre gesetzlich vorgeschriebene Originale auf.",
+      "pl": "MoBud pomaga organizować dane, lecz lokalne wymagania są różne. Sprawdź je u księgowego, pracodawcy lub urzędu i przechowuj wymagane oryginały."
     }
   },
   {
@@ -744,7 +843,10 @@
       "pt": "Como edito ou corrijo uma viagem?",
       "sv": "Hur ändrar eller korrigerar jag en resa?",
       "no": "Hvordan redigerer eller korrigerer jeg en tur?",
-      "da": "Hvordan redigerer eller retter jeg en tur?"
+      "da": "Hvordan redigerer eller retter jeg en tur?",
+      "de": "Wie bearbeite oder korrigiere ich eine Fahrt?",
+      "de-CH": "Wie bearbeite oder korrigiere ich eine Fahrt?",
+      "pl": "Jak edytować lub poprawić przejazd?"
     },
     "answer": {
       "en": "Open the calendar or recent list, select the trip and choose edit. After quick logging, MoBud also offers an “Adjust” action so you can correct details immediately.",
@@ -755,7 +857,10 @@
       "pt": "Abra o calendário ou lista recente, selecione a viagem e escolha editar. Após registo rápido, o MoBud também oferece “Ajustar” para corrigir detalhes imediatamente.",
       "sv": "Öppna kalendern eller senaste listan, välj resan och redigera. Efter snabbregistrering erbjuder MoBud också “Justera” så att du kan korrigera direkt.",
       "no": "Åpne kalenderen eller nylig-listen, velg turen og rediger. Etter hurtiglogging tilbyr MoBud også “Juster” slik at du kan rette detaljer med en gang.",
-      "da": "Åbn kalenderen eller seneste liste, vælg turen og redigér. Efter hurtigregistrering tilbyder MoBud også “Juster”, så du kan rette detaljer med det samme."
+      "da": "Åbn kalenderen eller seneste liste, vælg turen og redigér. Efter hurtigregistrering tilbyder MoBud også “Juster”, så du kan rette detaljer med det samme.",
+      "de": "Öffne Kalender oder Liste der letzten Fahrten, wähle die Fahrt und dann Bearbeiten. Nach der Schnellerfassung bietet MoBud außerdem „Anpassen“ an.",
+      "de-CH": "Öffne Kalender oder Liste der letzten Fahrten, wähle die Fahrt und dann Bearbeiten. Nach der Schnellerfassung bietet MoBud außerdem „Anpassen“ an.",
+      "pl": "Otwórz kalendarz lub listę ostatnich przejazdów, wybierz przejazd i Edytuj. Po szybkim zapisie MoBud oferuje też opcję „Dostosuj”."
     }
   },
   {
@@ -770,7 +875,10 @@
       "pt": "Posso repetir o tutorial?",
       "sv": "Kan jag spela upp handledningen igen?",
       "no": "Kan jeg spille av veiledningen igjen?",
-      "da": "Kan jeg afspille guiden igen?"
+      "da": "Kan jeg afspille guiden igen?",
+      "de": "Kann ich das Tutorial erneut starten?",
+      "de-CH": "Kann ich das Tutorial erneut starten?",
+      "pl": "Czy mogę ponownie uruchomić samouczek?"
     },
     "answer": {
       "en": "Yes. Open Settings or the FAQ/help area and choose to replay the tutorial when you want a guided tour again.",
@@ -781,7 +889,10 @@
       "pt": "Sim. Abra Definições ou FAQ/ajuda e escolha repetir o tutorial quando quiser uma visita guiada.",
       "sv": "Ja. Öppna Inställningar eller FAQ/hjälp och välj att spela upp handledningen igen när du vill ha guidning.",
       "no": "Ja. Åpne Innstillinger eller FAQ/hjelp og velg å spille av veiledningen igjen når du vil ha en omvisning.",
-      "da": "Ja. Åbn Indstillinger eller FAQ/hjælp og vælg at afspille guiden igen, når du vil have en rundvisning."
+      "da": "Ja. Åbn Indstillinger eller FAQ/hjælp og vælg at afspille guiden igen, når du vil have en rundvisning.",
+      "de": "Ja. Öffne Einstellungen oder den FAQ-/Hilfebereich und starte das Tutorial erneut, wenn du die Führung wiederholen möchtest.",
+      "de-CH": "Ja. Öffne Einstellungen oder den FAQ-/Hilfebereich und starte das Tutorial erneut, wenn du die Führung wiederholen möchtest.",
+      "pl": "Tak. Otwórz Ustawienia albo sekcję FAQ/pomocy i wybierz ponowne uruchomienie samouczka."
     }
   }
 ]
